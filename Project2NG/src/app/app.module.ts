@@ -8,6 +8,8 @@ import { DataService } from './data.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -15,7 +17,9 @@ import { AboutComponent } from './about/about.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
