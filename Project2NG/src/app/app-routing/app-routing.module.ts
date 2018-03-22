@@ -6,12 +6,17 @@ import { ProfileComponent } from '../profile/profile.component';
 import { PasswordResetComponent } from '../password-reset/password-reset.component';
 import { FeedComponent } from '../feed/feed.component';
 import { HomeComponent } from '../home/home.component';
+import {RegisterComponent} from '../register/register.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'home',

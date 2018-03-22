@@ -1,3 +1,14 @@
-<p>
-  register works!
-</p>
+<h1>Register</h1>
+<form >
+  <label for="registerEmail">Email: 
+    <input type = "email" name="email" id = "registerEmail" placeholder="Email" [ngModel]="email" (ngModelChange)="email= $event">
+  </label>
+  <br>
+  <label for="registerPassword">Password: <input type="password" name="password" id="registerPassword" placeholder="Password"[ngModel]="password" (ngModelChange)="password= $event">
+  </label>
+  <br>
+  <label for="registerConfirmPassword">Confirm Password: <input type="password" name="confirmPassword" id="registerConfirmPassword" placeholder="Confirm Password" [ngModel]="confirmPassword" (ngModelChange)="confirmPassword= $event">
+  </label>
+  <br>
+  <a href="/" class = "btn">Register</a>
+</form>
