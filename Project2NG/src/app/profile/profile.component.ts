@@ -24,8 +24,19 @@ export class ProfileComponent implements OnInit {
     this.navbarService.show();
   }
 
+editModeToggle(){
+  if (this.editMode)
+  {
+    this.editMode=false;
+  }else{
+    this.editMode=true;
+  }
+}
+
   //on update of form, need to send a post to db of new info.
   
   //need live update of fields from db.
+
+  //onclick for reset password link needs to send password reset email. 
 
 }
