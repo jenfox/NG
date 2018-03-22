@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from '../app.component';
-import { HomeComponent } from '../home/home.component';
-import { AboutComponent } from '../about/about.component';
 import { LoginComponent } from '../login/login.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { PasswordResetComponent } from '../password-reset/password-reset.component';
+import { FeedComponent } from '../feed/feed.component';
+import { HomeComponent } from '../home/home.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'about/:id',
-    component: AboutComponent,
-  },
-  {
-    path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children:[
+      {path:'', redirectTo:'feed', pathMatch:'full'},
+      {path:'profile', component: ProfileComponent},
+      {path:'feed', component: FeedComponent},
+    ]
   }
+
 ];
 
 @NgModule({
