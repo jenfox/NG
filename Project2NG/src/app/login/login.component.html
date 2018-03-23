@@ -1,18 +1,27 @@
-<div class="container color-dark">
-  <div class="col">
-    <p><strong>Login</strong></p>
-  </div>
+
+
+<div class="container">
   
+  <!-- new login interface -->
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <section class="login-form">
+        <form method="post" action="/home" role="login">
+          <h1>Please Sign In</h1>
+          <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
+          
+          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          
+          <a href="./home" class="btn btn-lg btn-primary btn-block">Sign in</a>
+          <div>
+            <a href="/register">Create account</a> or <a href="/passwordReset">Reset Password</a>
+          </div>
+          
+        </form>
+       
+      </section>  
+      </div>
 </div>
-<div class="container color-light">
-  <div class="col">
-  <form action="/home">
-    <input type="text" class="txt" name="email" placeholder="Email" >
-    <input type="password" class="txt" name="password" placeholder="Password" >
-    <a href="./home" class="btn">Login</a>
-  </form>
-  </div>
-  <div>
-    <a href="/register" class="btn" >Register</a>
-  </div>
-</div>
+

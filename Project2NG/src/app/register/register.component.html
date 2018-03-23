@@ -1,14 +1,27 @@
-<h1>Register</h1>
-<form >
-  <label for="registerEmail">Email: 
-    <input type = "email" name="email" id = "registerEmail" placeholder="Email" [ngModel]="email" (ngModelChange)="email= $event">
-  </label>
-  <br>
-  <label for="registerPassword">Password: <input type="password" name="password" id="registerPassword" placeholder="Password"[ngModel]="password" (ngModelChange)="password= $event">
-  </label>
-  <br>
-  <label for="registerConfirmPassword">Confirm Password: <input type="password" name="confirmPassword" id="registerConfirmPassword" placeholder="Confirm Password" [ngModel]="confirmPassword" (ngModelChange)="confirmPassword= $event">
-  </label>
-  <br>
-  <a href="/" class = "btn">Register</a>
-</form>
+
+
+<div class="container">
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+        
+      <section class="login-form">
+        
+        <form method="post" action="/home" role="login">
+          <h1>Register</h1>
+          <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
+          
+          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          <div class="pwstrength_viewport_progress"></div>
+          
+          <input type="password" class="form-control input-lg" id="confirmPassword" placeholder="Confirm Password" required="" />
+          <a href="./" class="btn btn-lg btn-primary btn-block">Register</a>
+          <a href="./" class="btn btn-sm btn-secondary btn-block" >Cancel</a>
+        </form>
+       
+      </section>  
+      </div>
+</div>
+
+

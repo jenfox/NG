@@ -19,6 +19,10 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'passwordReset',
+    component: PasswordResetComponent
+  },
+  {
     path: 'home',
     component: HomeComponent,
     children:[
