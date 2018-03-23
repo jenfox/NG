@@ -3,10 +3,10 @@ import { Injectable } from "@angular/core";
 
 export class Post{
     
-    body:string;
+    description:string;
     
-    constructor(body:string )
+    constructor(description:string )
     {
-        this.body = body;
+        this.description = description;
     }
 }
