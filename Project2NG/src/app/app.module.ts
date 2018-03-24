@@ -46,7 +46,6 @@ import { LoginService } from './login.service';
   ],
   providers: [
     DataService,
-    HttpClientModule,
     ProfilePicService,
     NavbarService,
     PostService,

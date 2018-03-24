@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { headersToString } from 'selenium-webdriver/http';
 
 
 @Injectable()
@@ -10,10 +11,15 @@ export class LoginService {
     // console.log("email = "+this.email);
     // console.log(this.password);
     const data={
-      'email': email,
-      'password':password
+      "email": email,
+      "password":password
     }
-    this.http.post('http://localhost:8080/login', {data}).subscribe(
+    const header= {
+      headers:new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    this.http.post('http://localhost:8080/login', data, header).subscribe(
       (succ:any)=>{
         console.log(succ);
       }
