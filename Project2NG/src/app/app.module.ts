@@ -19,6 +19,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { NavbarService } from './navbar.service';
 import { HomeComponent } from './home/home.component';
 import { PostService } from './posts/post.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login.service';
 
 
 @NgModule({
@@ -39,13 +41,16 @@ import { PostService } from './posts/post.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     DataService,
+    HttpClientModule,
     ProfilePicService,
     NavbarService,
-    PostService
+    PostService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

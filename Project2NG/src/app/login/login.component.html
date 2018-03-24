@@ -10,11 +10,11 @@
       <section class="login-form">
         <form method="post" action="/home" role="login">
           <h1>Please Sign In</h1>
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
+          <input [(ngModel)]="email" name="email" type="email"  placeholder="Email" required class="form-control input-lg"/>
           
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          <input [(ngModel)]="password" name="password" type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
           
-          <a href="./home" class="btn btn-lg btn-primary btn-block">Sign in</a>
+          <a (click)="login()"class="btn btn-lg btn-primary btn-block">Sign in</a>
           <div>
             <a href="/register">Create account</a> or <a href="/passwordReset">Reset Password</a>
           </div>
