@@ -22,12 +22,14 @@ module.exports = function (config) {
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'dots', 'junit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+	//modified to allow running on Jenkins
+    singleRun: true,							//was false
+	junitReporter: {outputDir: "TEST_RESULTS"}	//line added
   });
 };
