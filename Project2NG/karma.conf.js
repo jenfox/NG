@@ -30,6 +30,9 @@ module.exports = function (config) {
     browsers: ['Chrome'],
 	//modified to allow running on Jenkins
     singleRun: true,							//was false
-	junitReporter: {outputDir: "TEST_RESULTS"}	//line added
+	junitReporter: {
+    outputDir: "karma-results",
+    outputFile: 'karma-results.xml'
+    }	//line added
   });
 };
