@@ -12,7 +12,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       'karma-coverage',
       'karma-phantomjs-launcher',
-      'karma-junit-reporter'
+      'karma-junit-reporter',
       require('@angular/cli/plugins/karma')
     ],
     client:{
