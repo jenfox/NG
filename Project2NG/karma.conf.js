@@ -7,7 +7,6 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       'karma-phantomjs-launcher',
@@ -29,8 +28,9 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome', 'PhantomJS'],
-	//modified to allow running on Jenkins
+    browsers: ['PhantomJS'],
+    
+	  //modified to allow running on Jenkins
     singleRun: true,							//was false
 	junitReporter: {
     outputDir: "karma-results",
