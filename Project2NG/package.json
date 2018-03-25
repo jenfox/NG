@@ -28,7 +28,7 @@
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19",
 	"karma-cli": "*",
-	"phantomjs": "*",
+	"phantomjs-prebuilt": "*",
 	"karma-jasmine": "*",
 	"karma-phantomjs-launcher": "*",
 	"karma-junit-reporter": "*",
