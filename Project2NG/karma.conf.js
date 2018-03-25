@@ -28,10 +28,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-<<<<<<< HEAD
-    browsers: ['Chrome', 'PhantomJS'],
-	//modified to allow running on Jenkins
-=======
+
     browsers: ['ChromeHeadless'],
     
     customLaunchers: {
@@ -46,14 +43,12 @@ module.exports = function (config) {
         ],
       }
     },
-    
-
+  
 	  //modified to allow running on Jenkins
->>>>>>> 6c9c6adcae17fff4d646f991484b3fd6221781cc
     singleRun: true,							//was false
 	junitReporter: {
-    outputDir: "karma-results",
-    outputFile: 'karma-results.xml'
+		outputDir: "karma-results",
+		outputFile: 'karma-results.xml'
     }	//line added
   });
 };
