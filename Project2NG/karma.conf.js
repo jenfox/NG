@@ -4,14 +4,14 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular/cli', 'chai'],
+    frameworks: ['jasmine', '@angular/cli'],
+    files: ['test/**/*.js'],
     plugins: [
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('karma-chrome-launcher'),
       'karma-junit-reporter',
-	  'karma-chai',
       require('@angular/cli/plugins/karma')
     ],
     client:{
@@ -30,19 +30,19 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: false,
 
-    browsers: ['Chrome', 'ChromeHeadless', 'MyHeadlessChrome'],
+    browsers: ['HeadlessChrome', 'Chrome'],
     
     customLaunchers: {
-
-      MyHeadlessChrome: {
-        base: 'Chrome',
+      HeadlessChrome: {
+        base: 'ChromeHeadless',
         flags: [
-          '--disable-translate',
-          '--headless',
-          '--disable-gpu',
+          '--disable-translate', 
           '--disable-extensions',
+          '--disable-gpu',
+          '--no-first-run', 
+          '--disable-background-networking',
           '--remote-debugging-port=9223'
-        ],
+        ]
       }
     },
   
