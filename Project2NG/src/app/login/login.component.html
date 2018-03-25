@@ -1,0 +1,26 @@
+
+
+<div class="container">
+  
+  <!-- new login interface -->
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <section class="login-form">
+        <form method="post" action="/home" role="login">
+          <h1>Please Sign In</h1>
+          <input [(ngModel)]="email" name="email" type="email"  placeholder="Email" required class="form-control input-lg"/>
+          
+          <input [(ngModel)]="password" name="password" type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          
+          <a (click)="login()"class="btn btn-lg btn-primary btn-block">Sign in</a>
+          <div>
+            <a href="/register">Create account</a> or <a href="/passwordReset">Reset Password</a>
+          </div>
+          
+        </form>
+       
+      </section>  
+      </div>
+</div>
