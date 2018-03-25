@@ -44,7 +44,7 @@
     "phantomjs-prebuilt": "*",
 	  "karma-jasmine": "*",
 	  "karma-phantomjs-launcher": "*",
-	  "karma-junit-reporter": "*"
+	  "karma-junit-reporter": "*",
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
