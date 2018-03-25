@@ -4,7 +4,7 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular/cli'],
+    frameworks: ['jasmine', '@angular/cli', 'chai'],
     plugins: [
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
@@ -27,19 +27,20 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
 
-    browsers: ['ChromeHeadless'],
+    browsers: ['Chrome', 'ChromeHeadless', 'MyHeadlessChrome'],
     
     customLaunchers: {
-      ChromeHeadless: {
+
+      MyHeadlessChrome: {
         base: 'Chrome',
         flags: [
           '--disable-translate',
           '--headless',
           '--disable-gpu',
           '--disable-extensions',
-          '--remote-debugging-port=9222',
+          '--remote-debugging-port=9223'
         ],
       }
     },
