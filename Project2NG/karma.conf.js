@@ -11,6 +11,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('karma-chrome-launcher'),
       'karma-junit-reporter',
+	  'karma-chai',
       require('@angular/cli/plugins/karma')
     ],
     client:{
