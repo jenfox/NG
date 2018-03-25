@@ -41,7 +41,7 @@ module.exports = function (config) {
           '--remote-debugging-port=9222',
         ],
       }
-    }
+    },
     
 
 	  //modified to allow running on Jenkins
