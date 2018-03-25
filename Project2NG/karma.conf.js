@@ -27,7 +27,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'PhantomJS'],
 	//modified to allow running on Jenkins
     singleRun: true,							//was false
 	junitReporter: {outputDir: "TEST_RESULTS"}	//line added
