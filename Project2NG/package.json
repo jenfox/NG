@@ -27,12 +27,11 @@
     "popper.js": "^1.14.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19",
-	"karma-cli": "*",
-	"phantomjs-prebuilt": "*",
-	"karma-jasmine": "*",
-	"karma-phantomjs-launcher": "*",
-	"karma-junit-reporter": "*",
-	"karma-chrome-launcher": "*"
+	  "karma-cli": "*",
+	  "phantomjs-prebuilt": "*",
+	  "karma-jasmine": "*",
+	  "karma-phantomjs-launcher": "*",
+	  "karma-junit-reporter": "*",
   },
   "devDependencies": {
     "@angular/cli": "~1.7.3",
