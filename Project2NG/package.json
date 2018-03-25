@@ -31,7 +31,7 @@
 	  "phantomjs-prebuilt": "*",
 	  "karma-jasmine": "*",
 	  "karma-phantomjs-launcher": "*",
-	  "karma-junit-reporter": "*",
+	  "karma-junit-reporter": "*"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.3",
