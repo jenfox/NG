@@ -22,6 +22,8 @@ import { PostService } from './posts/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import {RegisterService} from './register.service';
+import { PasswordResetService } from './password-reset.service';
+
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import {RegisterService} from './register.service';
     NavbarService,
     PostService,
     LoginService,
-    RegisterService
+    RegisterService,
+    PasswordResetService
   ],
   bootstrap: [AppComponent]
 })
