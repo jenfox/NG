@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { PostService } from './posts/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
+import {RegisterService} from './register.service';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { LoginService } from './login.service';
     ProfilePicService,
     NavbarService,
     PostService,
-    LoginService
+    LoginService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })

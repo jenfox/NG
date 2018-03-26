@@ -8,8 +8,6 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
   logIn(email:string, password:string){
-    // console.log("email = "+this.email);
-    // console.log(this.password);
     const data={
       "email": email,
       "password":password
