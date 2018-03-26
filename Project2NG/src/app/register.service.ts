@@ -4,10 +4,13 @@ import { headersToString } from 'selenium-webdriver/http';
 import { Router } from '@angular/router';
 
 
+
 @Injectable()
 export class RegisterService {
 
+
   constructor(private http:HttpClient, private router: Router) { }
+
   register(email:string, password:string, confirmPassword:string){
     console.log("P: "+password+"; CP: "+confirmPassword);
     if(password != confirmPassword){
@@ -29,7 +32,6 @@ export class RegisterService {
         console.log(succ);
         alert("You have successfully registered. Please check your email to confirm your account.");
         this.router.navigateByUrl("/")
-        //Need to drop a redirect to login here, but not sure how that works. 
       }
     )
   }
