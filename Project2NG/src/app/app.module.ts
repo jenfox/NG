@@ -20,7 +20,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { NavbarService } from './navbar.service';
 import { HomeComponent } from './home/home.component';
 import { PostService } from './posts/post.service';
-import { HttpClientModule,HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import {RegisterService} from './register.service';
 import { PasswordResetService } from './password-reset.service';
@@ -59,7 +59,6 @@ import {FindUsersService} from './find-users.service'
     PasswordResetService,
     CookieService,
     FindUsersService,
-    HttpHeaders
   ],
   bootstrap: [AppComponent]
 })

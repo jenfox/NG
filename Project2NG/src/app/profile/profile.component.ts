@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
 import {User} from '../user';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   private updateUser:User  =new User;
-  public user:User =new User();
+  public user:User =<User>this.cookie.getObject('user');
   uProfilePic:string = 'http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg';
   editMode: boolean = false;
   constructor(private router:Router, private http:HttpClient, public navbarService:NavbarService, private cookie:CookieService) { }
@@ -27,7 +27,8 @@ export class ProfileComponent implements OnInit {
 //on submit of form, need to send a post to db of new info.
   updateProfile(){
     console.log(this.updateUser);
-    const id:string = this.cookie.get('user.id');
+    const id = this.user.id;
+    console.log(id+" is the id you are appending");
     const url:string='http://localhost:8080/users/'+id;
     const data={
       "firstName": this.updateUser.firstName,
@@ -36,21 +37,21 @@ export class ProfileComponent implements OnInit {
       "phoneNumber": this.updateUser.phoneNumber,
       "DoB": this.updateUser.dateOfBirth      
     }
-    // const header= {
-    //   headers:new HttpHeaders({
-    //     'Content-Type':'application/json'
-    //   })
-    // }
+    const header= {
+      headers:new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
      
-  //   this.http.post(url, data, header).subscribe(
-  //     (succ:any)=>{
-  //       console.log(succ);
-  //       this.user = succ;
-  //       this.cookie.putObject('user',this.user);
-  //       console.log(this.cookie.get('user'), "is thine cookie");
-  //       this.router.navigateByUrl("/home/profile")
+    this.http.post(url, data, header).subscribe(
+      (succ:any)=>{
+        console.log(succ);
+        this.user = succ;
+        this.cookie.putObject('user',this.user);
+        console.log(this.cookie.get('user'), "is thine cookie");
+        this.router.navigateByUrl("/home/profile")
         
-  // })
+  })
 }
   
 editModeToggle(){
