@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataService } from './data.service';
 
+import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import {RegisterService} from './register.service';
 import { PasswordResetService } from './password-reset.service';
-import { GetUserService } from './get-user.service';
+
 
 
 
@@ -39,7 +40,7 @@ import { GetUserService } from './get-user.service';
     PasswordResetComponent,
     LikeComponent,
     CreatePostComponent,
-    HomeComponent
+    HomeComponent, 
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,7 @@ import { GetUserService } from './get-user.service';
     LoginService,
     RegisterService,
     PasswordResetService,
-    GetUserService
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

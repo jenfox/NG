@@ -1,10 +1,9 @@
 <img src="{{uProfilePic}}" alt="profile pic">
 <ul>
-    <li>First Name: {{uFirstName}}</li><br>
-    <li>Last Name: {{uLastName}}</li><br>
-    <li>Gender: {{uGender}}</li><br>
-    <li>Orientation: {{uOrientation}}</li><br>
-    <li>Phone: {{uPhoneNumber}}</li><br>
+    <li>First Name: {{user.firstName}}</li><br>
+    <li>Last Name: {{user.lastName}}</li><br>
+    <li>Gender: {{user.gender}}</li><br>
+    <li>Phone: {{user.phone}}</li><br>
 </ul>
 
 <button id="edit" (click)="editModeToggle()">Edit Profile</button>
@@ -13,10 +12,9 @@
 
 <h1>Edit Profile:</h1>
 <form>
-    <label for="firstname">Firstname: <input type="text" placeholder="{{uFirstName}}" id="firstname"></label><br>
-    <label for="lastname">Lastname: <input type="text" placeholder="{{uLastName}}" id="lastname"></label><br>
+    <label for="firstname">Firstname: <input type="text" placeholder="{{user.firstName}}" id="firstname"></label><br>
+    <label for="lastname">Lastname: <input type="text" placeholder="{{user.lastName}}" id="lastname"></label><br>
     <label for="gender">Gender: <input type="radio" name="gender" value = "male">Male
         <input type="radio" name="gender" value = "female">Female    </label><br>
-    <label for="orientation">Orientation: <input type="text" placeholder="{{uOrientation}}" id="orientation"></label><br>
-    <label for="phone">Phone Number: <input type="text" placeholder="{{uPhoneNumber}}" id="phone"></label>
+    <label for="phone">Phone Number: <input type="text" placeholder="{{user.phone}}" id="phone"></label>
 </form>
