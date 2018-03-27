@@ -18,6 +18,9 @@ constructor(private router:Router, private cookie:CookieService, public navbarSe
 
   ngOnInit() {
    this.user= <User>this.cookie.getObject('user');
+   if (!this.user.firstName){
+     this.user.firstName = "Click Here To Set Up Your Profile";
+   }
   }
 
   logout(){

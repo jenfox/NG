@@ -1,3 +1,4 @@
-<p>
-  search-bar works!
-</p>
+<form>
+  <input name="findAUser" [(ngModel)]="toFind" type="text" placeholder="find a user">
+  <a (click)="findUsers()">search</a>
+</form>

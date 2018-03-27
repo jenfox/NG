@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import {RegisterService} from './register.service';
 import { PasswordResetService } from './password-reset.service';
-
+import {FindUsersService} from './find-users.service'
 
 
 
@@ -57,7 +57,8 @@ import { PasswordResetService } from './password-reset.service';
     LoginService,
     RegisterService,
     PasswordResetService,
-    CookieService
+    CookieService,
+    FindUsersService
   ],
   bootstrap: [AppComponent]
 })
