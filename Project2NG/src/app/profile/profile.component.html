@@ -12,9 +12,12 @@
 
 <h1>Edit Profile:</h1>
 <form>
-    <label for="firstname">Firstname: <input type="text" placeholder="{{user.firstName}}" id="firstname"></label><br>
-    <label for="lastname">Lastname: <input type="text" placeholder="{{user.lastName}}" id="lastname"></label><br>
-    <label for="gender">Gender: <input type="radio" name="gender" value = "male">Male
-        <input type="radio" name="gender" value = "female">Female    </label><br>
-    <label for="phone">Phone Number: <input type="text" placeholder="{{user.phone}}" id="phone"></label>
+    <label for="firstname">Firstname: <input name="firstName" [(ngModel)]="updateUser.firstName" type="text" placeholder="{{user.firstName}}" id="firstname"></label><br>
+    <label for="lastname">Lastname: <input type="text"name="lastName" [(ngModel)]="updateUser.lastName" placeholder="{{user.lastName}}" id="lastname"></label><br>
+    <label for="gender">Gender: <input type="radio" name="gender" [(ngModel)]="updateUser.gender"value = "male">Male
+        <!-- look up radio button ngModel... -->
+        <input type="radio" name="gender"[(ngModel)]="updateUser.gender" value = "female">Female    </label><br>
+    <label for="phone">Phone Number: <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber"placeholder="{{user.phone}}" id="phone"></label><br>
+    <label for="DoB">Date of Birth (MM/DD/YYYY): <input type="text" name="dateOfBirth"[(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}"></label><br>
+    <!-- <a (click) = "updateProfile()"class="btn btn-md btn-primary btn-block">Submit Changes</a> -->
 </form>

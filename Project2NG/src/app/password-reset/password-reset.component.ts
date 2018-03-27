@@ -9,7 +9,7 @@ import { PasswordResetService } from '../password-reset.service';
 export class PasswordResetComponent implements OnInit {
 
   constructor(private resetservice: PasswordResetService) { }
-  private email: string = "";
+  public email: string = "";
 
   public reset(){
     this.resetservice.reset(this.email);
