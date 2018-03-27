@@ -16,7 +16,7 @@ export class SearchBarComponent implements OnInit {
 
   findUsers(){
     console.log(this.toFind);
-    this.findUsersService.findUsers();
+    this.findUsersService.findUsers(this.toFind);
   }
 
 }
