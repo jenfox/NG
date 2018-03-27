@@ -33,9 +33,6 @@ user:User;
         //guard is ng g guard loggedin...
         // on routes page, each route can be set to check this guard. 
         //guard can be if this.cookie.user exists
-       
-        //logout
-        //this.cookie.deleteAll();
       }
     )
   }

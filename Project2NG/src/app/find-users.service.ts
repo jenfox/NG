@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class FindUsersService {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
-  findUsers(){
+  findUsers(toFind:String){
     //needs a servlet method for http request
+    this.router.navigateByUrl('/profileList')
   }
 
 }
