@@ -58,7 +58,7 @@ import {FindUsersService} from './find-users.service'
     RegisterService,
     PasswordResetService,
     CookieService,
-    FindUsersService
+    FindUsersService,
   ],
   bootstrap: [AppComponent]
 })
