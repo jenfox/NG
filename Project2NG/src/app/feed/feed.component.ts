@@ -10,6 +10,9 @@ import { PostService } from '../posts/post.service';
 export class FeedComponent implements OnInit {
 
   posts: Post[];
+  currentUser:{
+    
+  }
   constructor(private postService:PostService) { }
 
   ngOnInit() {

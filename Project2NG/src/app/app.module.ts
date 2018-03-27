@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
 import {RegisterService} from './register.service';
 import { PasswordResetService } from './password-reset.service';
+import { GetUserService } from './get-user.service';
 
 
 
@@ -54,7 +55,8 @@ import { PasswordResetService } from './password-reset.service';
     PostService,
     LoginService,
     RegisterService,
-    PasswordResetService
+    PasswordResetService,
+    GetUserService
   ],
   bootstrap: [AppComponent]
 })
