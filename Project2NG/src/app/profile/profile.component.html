@@ -17,6 +17,6 @@
     <label for="gender">Gender: <input type="radio" name="gender" [(ngModel)]="updateUser.gender"value = "male">Male
         <input type="radio" name="gender"[(ngModel)]="updateUser.gender" value = "female">Female    </label><br>
     <label for="phone">Phone Number: <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber"placeholder="{{user.phone}}" id="phone"></label><br>
-    <label for="DoB">Date of Birth (YYYY/MM/DD): <input type="text" name="dateOfBirth"[(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}"></label><br>
+    <label for="DoB">Date of Birth (YYYY-MM-DD): <input type="text" name="dateOfBirth"[(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}"></label><br>
     <a (click) = "updateProfile()"class="btn btn-md btn-primary btn-block">Submit Changes</a>
 </form>
