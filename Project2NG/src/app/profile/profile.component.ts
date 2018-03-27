@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
+import {User} from '../user';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,20 +10,15 @@ import { NavbarService } from '../navbar.service';
 })
 export class ProfileComponent implements OnInit {
 
+  public user:User =new User();
   uProfilePic:string = 'http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg';
-  uEmail: string = '';
-  uFirstName:string='Hermione';
-  uLastName:string='Granger';
-  uGender:string='Female';
-  uOrientation:string='Straight';
-  uDOB: Date = null;
-  uPhoneNumber:string = '(123) 456-7890';
   editMode: boolean = false;
-  constructor(public navbarService:NavbarService) { }
+  constructor(public navbarService:NavbarService, private cookie:CookieService) { }
 
   ngOnInit() {
-  
     this.navbarService.show();
+
+    this.user = <User>this.cookie.getObject('user');
   }
 
 editModeToggle(){

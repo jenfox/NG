@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataService } from './data.service';
 
+import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,6 +22,10 @@ import { HomeComponent } from './home/home.component';
 import { PostService } from './posts/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
+import {RegisterService} from './register.service';
+import { PasswordResetService } from './password-reset.service';
+
+
 
 
 @NgModule({
@@ -35,7 +40,7 @@ import { LoginService } from './login.service';
     PasswordResetComponent,
     LikeComponent,
     CreatePostComponent,
-    HomeComponent
+    HomeComponent, 
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,10 @@ import { LoginService } from './login.service';
     ProfilePicService,
     NavbarService,
     PostService,
-    LoginService
+    LoginService,
+    RegisterService,
+    PasswordResetService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

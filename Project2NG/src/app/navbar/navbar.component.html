@@ -9,34 +9,28 @@
         <li class="nav-item active">
           <a class="nav-link" href="./home"><app-search-bar></app-search-bar> <span class="sr-only">(current)</span></a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li> -->
-
-        <!-- <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li> -->
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li class="nav-item"><img src="./assets/image.png"></li> -->
-          
           <li class="nav-item">
-            <a class="nav-link" href="./home/profile">profile...</a>
+            <a class="nav-link" href="./home/profile">{{user.firstName}} {{user.lastName}}</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="./home/feed">feed...</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">logout</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Menu
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- <a class="dropdown-item" href="#">Action</a> -->
               <a class="dropdown-item" href="./home/profile">edit profile...</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="./">logout...</a>
             </div>
-          </li>
+          </li> -->
         <!-- </li> -->
       </ul>
     </div>
