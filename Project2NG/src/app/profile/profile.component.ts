@@ -19,11 +19,6 @@ export class ProfileComponent implements OnInit {
     this.navbarService.show();
 
     this.user = <User>this.cookie.getObject('user');
-    console.log(this.user);
-    
-
-
-
   }
 
 editModeToggle(){
