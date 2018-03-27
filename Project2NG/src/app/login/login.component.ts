@@ -18,10 +18,6 @@ export class LoginComponent implements OnInit {
     this.loginservice.logIn(this.email, this.password)
   }
 
-  goRegister(){
-    
-  }
-
   ngOnInit() {
   }
 
