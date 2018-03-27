@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FindUsersService } from '../find-users.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  toFind:String;
+  constructor(private findUsersService:FindUsersService) { }
 
   ngOnInit() {
+  }
+
+  findUsers(){
+    console.log(this.toFind);
+    this.findUsersService.findUsers(this.toFind);
   }
 
 }

@@ -7,7 +7,7 @@ import { PasswordResetComponent } from '../password-reset/password-reset.compone
 import { FeedComponent } from '../feed/feed.component';
 import { HomeComponent } from '../home/home.component';
 import {RegisterComponent} from '../register/register.component';
-
+import {ProfileListComponent} from '../profile-list/profile-list.component'
 
 const routes: Routes = [
   {
@@ -29,6 +29,7 @@ const routes: Routes = [
       {path:'', redirectTo:'feed', pathMatch:'full'},
       {path:'profile', component: ProfileComponent},
       {path:'feed', component: FeedComponent},
+      {path:'profileList', component:ProfileListComponent}
     ]
   }
 

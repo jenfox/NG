@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../Post';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class PostService {
+
+  
 
   posts:Post[] = [
     new Post("Post 1"),
@@ -11,7 +14,15 @@ export class PostService {
   ]
 
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  fetchPosts(): Post[]{
+   return this.posts;
+  }
+
+  createPost(body:String){
+
+  }
 
   getPosts(): Post[]
   {
