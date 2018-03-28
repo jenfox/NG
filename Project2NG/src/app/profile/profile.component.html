@@ -21,6 +21,7 @@
     <label for="DoB">Date of Birth (YYYY-MM-DD): <input type="text" name="dateOfBirth"[(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}"></label><br>
     <a (click) = "updateProfile()"class="btn btn-md btn-primary btn-block">Submit Changes</a>
 
-        <input [(ngModel)]="pic" type="file" name="file" (change) = "uploadPic()"/>
+        <input type="file" name="file" id="picture" />
+        <a (click) = "uploadPic()" class="btn btn-md btn-primary btn-block">Upload Photo!</a>
     
 </form>

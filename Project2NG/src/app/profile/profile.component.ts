@@ -17,8 +17,6 @@ export class ProfileComponent implements OnInit {
   uProfilePic:string = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
   editMode: boolean = false;
 
-  public pic: File; 
-
   constructor(private router:Router, private http:HttpClient, public navbarService:NavbarService, private cookie:CookieService) { }
 
 
@@ -60,19 +58,22 @@ export class ProfileComponent implements OnInit {
 }
 
 uploadPic(){
-  console.log(this.pic);
+  let pic : any;
+   pic = document.getElementById("picture");
+  let files = [];
+   let filename: any;
+   files = pic.files;
+
+   let theFile : File = files[0];
+  console.log(pic);
+  console.log(theFile);
   const id = this.user.id;
   const url:string='http://localhost:8080/profilePictures/'+id;
   let formdata: FormData = new FormData();
-  const header= {
-    headers:new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-      'Accept': '*/*'
-    })}
+
+    formdata.append('multipartFile', theFile);
  
-    formdata.append('file', this.pic);
- 
-    this.http.post(url, formdata, header).subscribe(
+    this.http.post(url, formdata).subscribe(
       (succ:any)=>{
         console.log(succ);
         this.user = succ;
