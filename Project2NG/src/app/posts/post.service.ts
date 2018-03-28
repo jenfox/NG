@@ -27,6 +27,11 @@ export class PostService {
   {
     return this.posts;
   }
+   // "/posts/feed" -> get method 
+ get20Posts() {
+  
+  return this.posts;
+ }
 
   createPost(post : String) {
 
@@ -58,9 +63,6 @@ export class PostService {
 
  }
 
- // "/posts/feed" -> get method 
- get20Posts() {
 
- }
 
 }
