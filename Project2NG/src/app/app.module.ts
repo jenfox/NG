@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataService } from './data.service';
+import * as $ from 'jquery';
 
 import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { PasswordResetService } from './password-reset.service';
 import {FindUsersService} from './find-users.service';
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { ChangePasswordComponent } from './change-password/change-password.component'
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -63,7 +65,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     PasswordResetService,
     CookieService,
     FindUsersService,
-    PostService
+    PostService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
