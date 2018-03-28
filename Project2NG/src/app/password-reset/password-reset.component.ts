@@ -13,6 +13,8 @@ export class PasswordResetComponent implements OnInit {
 
   public reset(){
     this.resetservice.reset(this.email);
+    //show modal
+    (<any>$('#passwordModal')).modal('show');
   }
 
   ngOnInit() {

@@ -8,6 +8,7 @@ import { FeedComponent } from '../feed/feed.component';
 import { HomeComponent } from '../home/home.component';
 import {RegisterComponent} from '../register/register.component';
 import {ProfileListComponent} from '../profile-list/profile-list.component'
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    canActivate:[AuthGuard],
     component: HomeComponent,
     children:[
       {path:'', redirectTo:'feed', pathMatch:'full'},
