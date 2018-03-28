@@ -21,8 +21,17 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit() {
   }
 
+  public checkerCheck(){
+    var checker: boolean = (this.newpassword != this.confnewpassword);
+    return checker;
+  }
+
   public update(){
     this.user= <User>this.cookie.getObject('user');
+    if(this.newpassword != this.confnewpassword){
+      alert("Your new passwords do not match.")
+      return;
+    }
     const data={
       "email": this.user.email,
       "password": this.oldpassword
@@ -42,7 +51,7 @@ export class ChangePasswordComponent implements OnInit {
             "email": this.user.email,
             "password": this.newpassword
           }
-        this.http.post('http://localhost:8080/user/password', data2, header).subscribe(
+        this.http.post('http://localhost:8080/users/password', data2, header).subscribe(
           (succ:any)=>{
             console.log(succ);
             alert("You have successfully changed your password. ")
