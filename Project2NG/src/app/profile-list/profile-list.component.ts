@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FindUsersService } from '../find-users.service';
+import { User } from '../user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-list',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileListComponent implements OnInit {
 
-  constructor() { }
+  public profileList:User[]
+
+  constructor(private router:Router, private findUsersService:FindUsersService) { }
 
   ngOnInit() {
+    this.profileList =this.findUsersService.getListOfMatches();
+    console.log(this.profileList);
+  }
+
+  goToProfile(id:number){
+    this.router.navigateByUrl("")//navigate to wherever user profile lives.
   }
 
 }
