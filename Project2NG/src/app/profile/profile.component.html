@@ -20,4 +20,7 @@
     <label for="phone">Phone Number: <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber"placeholder="{{user.phone}}" id="phone"></label><br>
     <label for="DoB">Date of Birth (YYYY-MM-DD): <input type="text" name="dateOfBirth"[(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}"></label><br>
     <a (click) = "updateProfile()"class="btn btn-md btn-primary btn-block">Submit Changes</a>
+
+        <input [(ngModel)]="pic" type="file" name="file" (change) = "uploadPic()"/>
+    
 </form>
