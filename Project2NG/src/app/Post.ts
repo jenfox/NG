@@ -3,9 +3,9 @@ import { Injectable } from "@angular/core";
 
 export class Post{
     
-    body:string;
+    body:String;
     
-    constructor(body:string )
+    constructor(body:String )
     {
         this.body = body;
     }
