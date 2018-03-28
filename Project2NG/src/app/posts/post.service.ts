@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Post } from '../Post';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-import { User } from '../User';
+import { User } from '../user';
 import { Router } from '@angular/router';
+import {Observable} from 'rxjs/Observable'
 
 @Injectable()
 export class PostService {
@@ -11,9 +12,6 @@ export class PostService {
   
 
   posts:Post[] = [
-    new Post("Post 1"),
-    new Post("Post 2"),
-    new Post("Poop 3 the sequel")
   ]
 
 
@@ -28,9 +26,22 @@ export class PostService {
     return this.posts;
   }
    // "/posts/feed" -> get method 
- get20Posts() {
-  
-  return this.posts;
+ get20Posts(): Observable<Post[]> {
+  const url:string = 'http://localhost:8080/posts/feed';
+  const header = {
+    headers : new HttpHeaders({
+      'Content-Type' : 'application/json'
+    })
+   };
+ return <Observable<Post[]>>this.http.get(url,header)//.subscribe(
+  //   (succ:any)=>{
+  //     console.log(succ);
+  //     this.posts = succ;
+  //     console.log(this.posts+" is the posts array")
+  //   }
+  // );
+  // console.log(this.posts+" is the posts array")
+  // return this.posts;
  }
 
   createPost(post : String) {

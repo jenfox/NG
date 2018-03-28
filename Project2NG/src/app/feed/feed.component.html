@@ -1,6 +1,9 @@
 <div class="container">
   <app-create-post></app-create-post>
 <div *ngFor="let post of posts">
-  {{post.body}}
+ {{post.author.firstName}} {{post.author.lastName}} {{post.content}}
+  <app-like></app-like>
 </div>
 </div>
+
+<!-- need to ngIf the lastname... someone without one breaks the loop -->
