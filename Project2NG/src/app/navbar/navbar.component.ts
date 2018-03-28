@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
-import {User} from '../user';
+import { User } from '../user';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { Router } from '@angular/router';
 

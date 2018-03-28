@@ -63,6 +63,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     PasswordResetService,
     CookieService,
     FindUsersService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
