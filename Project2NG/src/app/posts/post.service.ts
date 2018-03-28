@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Post } from '../Post';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-import { User } from '../User';
+import { User } from '../user';
 import { Router } from '@angular/router';
 
 @Injectable()
