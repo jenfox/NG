@@ -25,7 +25,8 @@ import { LoginService } from './login.service';
 import {RegisterService} from './register.service';
 import { PasswordResetService } from './password-reset.service';
 import {FindUsersService} from './find-users.service';
-import { ProfileListComponent } from './profile-list/profile-list.component'
+import { ProfileListComponent } from './profile-list/profile-list.component';
+import { ChangePasswordComponent } from './change-password/change-password.component'
 
 
 
@@ -42,7 +43,8 @@ import { ProfileListComponent } from './profile-list/profile-list.component'
     LikeComponent,
     CreatePostComponent,
     HomeComponent,
-    ProfileListComponent, 
+    ProfileListComponent,
+    ChangePasswordComponent, 
   ],
   imports: [
     BrowserModule,
