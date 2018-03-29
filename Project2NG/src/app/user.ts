@@ -6,4 +6,5 @@ export class User{
     gender: string;
     phoneNumber: string;
     dateOfBirth: string;//MM/DD/YYYY
+    profileUrl: string;
 }
