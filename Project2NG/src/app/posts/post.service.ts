@@ -21,10 +21,16 @@ export class PostService {
    return this.posts;
   }
 
-  getPosts(): Post[] {
-    return this.posts;
+  getPosts(uid): Observable<Post[]> {
+    const url = 'http://localhost:8080/posts/feed/' + uid;
+    const header = {
+      headers : new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+     };
+   return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
   }
-   // "/posts/feed" -> get method
+
  get20Posts(): Observable<Post[]> {
   const url = 'http://localhost:8080/posts/feed';
   const header = {
@@ -33,14 +39,7 @@ export class PostService {
     })
    };
  return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
-  //   (succ:any)=>{
-  //     console.log(succ);
-  //     this.posts = succ;
-  //     console.log(this.posts+" is the posts array")
-  //   }
-  // );
-  // console.log(this.posts+" is the posts array")
-  // return this.posts;
+
  }
 
   createPost(post: String) {
