@@ -54,7 +54,7 @@ export class ChangePasswordComponent implements OnInit {
         this.user2 = succ;
 
         // tslint:disable-next-line:triple-equals
-        if (this.user2.email == this.user.email) {
+        if (this.user2 && this.user2.email == this.user.email) {
           const data2 = {
             'email': this.user.email,
             'password': this.newpassword
