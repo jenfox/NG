@@ -72,6 +72,38 @@
     </div>
 </div>
 
+<div *ngFor="let post of posts" id="feed">
+        <div id="author">{{post.author.firstName}} {{post.author.lastName}}</div>
+        <div id="content">{{post.content}}</div>
+    
+        <!--User liked post alread -->
+        <div *ngIf="post.likes != null; else noLikes">
+            <div *ngIf="post.likes.includes(this.user.id); else showCmtButton">
+                <div id="like-btn" align="right">
+                    <button disabled class="btn btn-secondary" id="likeBtn">
+                        <div>{{post.likes.length}} likes</div>
+                    </button>
+                </div>
+            </div>
+            <!--User hasn't liked post already"-->
+            <ng-template #showCmtButton>
+                <div id="like-btn" align="right">
+                    <a (click)="likeThis(post.id)" class="btn btn-primary" id="likeBtn">
+                        <div>{{post.likes.length}} likes</div>
+                    </a>
+                </div>
+            </ng-template>
+        </div>
+    
+        <ng-template #noLikes>
+            <div id="like-btn" align="right">
+                <a (click)="likeThis(post.id)" class="btn btn-primary" id="likeBtn">
+                    <div>0 likes</div>
+                </a>
+            </div>
+        </ng-template>
+    </div>
+
 <!--Modal-->
 <div class="modal" id="updateModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

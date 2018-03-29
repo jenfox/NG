@@ -6,10 +6,11 @@ import { ProfileComponent } from '../profile/profile.component';
 import { PasswordResetComponent } from '../password-reset/password-reset.component';
 import { FeedComponent } from '../feed/feed.component';
 import { HomeComponent } from '../home/home.component';
-import {RegisterComponent} from '../register/register.component';
-import {ProfileListComponent} from '../profile-list/profile-list.component'
+import { RegisterComponent } from '../register/register.component';
+import { ProfileListComponent } from '../profile-list/profile-list.component';
 import { AuthGuard } from '../auth.guard';
 import { OtherProfileComponent } from '../other-profile/other-profile.component';
+import { VideoPlayerComponent } from '../video-player/video-player.component';
 
 const routes: Routes = [
   {
@@ -26,14 +27,15 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    canActivate:[AuthGuard],
+    canActivate: [AuthGuard],
     component: HomeComponent,
-    children:[
-      {path:'', redirectTo:'feed', pathMatch:'full'},
-      {path:'profile', component: ProfileComponent},
-      {path:'feed', component: FeedComponent},
-      {path:'profileList', component:ProfileListComponent},
-      {path:'otherPeep/:id', component:OtherProfileComponent}
+    children: [
+      { path: '', redirectTo: 'feed', pathMatch: 'full' },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'feed', component: FeedComponent },
+      { path: 'profileList', component: ProfileListComponent },
+      { path: 'otherPeep/:id', component: OtherProfileComponent },
+      { path: 'video', component: VideoPlayerComponent}
     ]
   },
   { path: '**', component: LoginComponent }
@@ -44,7 +46,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ], exports: [
-      RouterModule
+    RouterModule
   ],
   declarations: []
 })

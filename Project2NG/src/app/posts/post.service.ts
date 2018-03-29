@@ -42,6 +42,7 @@ export class PostService {
 
   }
 
+
   createPost(post : String, formdata: FormData) {
 
     var resp: Post;
@@ -84,7 +85,3 @@ export class PostService {
   })
 
   }
-
-
-
-}

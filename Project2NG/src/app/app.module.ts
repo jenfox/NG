@@ -30,6 +30,7 @@ import { AuthGuard } from './auth.guard';
 import { LikePostService } from './like-post.service';
 import { OtherProfileComponent } from './other-profile/other-profile.component';
 import { FindUserService } from './find-user.service';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 
 
@@ -48,6 +49,7 @@ import { FindUserService } from './find-user.service';
     ProfileListComponent,
     ChangePasswordComponent,
     OtherProfileComponent,
+    VideoPlayerComponent,
   ],
   imports: [
     BrowserModule,
