@@ -17,23 +17,46 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  register() {
-    if (this.email === '') {
-      alert('Please provide a valid email');
-      return;
-    } else if (this.password === '') {
-      alert('Please fill out the password field');
-      return;
-    } else if (this.confirmPassword === '') {
-      alert('Please confirm your password');
-      return;
-    } else {
-      // get text to display to modal
-      const text = this.registerservice.register(this.email, this.password, this.confirmPassword);
-      console.log(text);
-      document.getElementById('modalTitle').innerHTML = text;
+  register(){
+    let modalTitleObj = document.getElementById('modalTitle');
+
+    if(this.email == ""){
+      modalTitleObj.innerHTML = "Please provide a valid email";
       (<any>$('#registerModal')).modal('show');
+      return;
+    } else if(this.password == "" ){
+      modalTitleObj.innerHTML = "Please fill out the password field";
+      (<any>$('#registerModal')).modal('show');
+      return;
+    } else if(this.confirmPassword == "") {
+      modalTitleObj.innerHTML = "Please confirm your password";
+     (<any>$('#registerModal')).modal('show');
+      return;
+    } else { 
+      //try to register
+       this.registerservice.register(this.email, this.password, this.confirmPassword).subscribe(
+        (succ: any) => {
+          console.log(succ);
+          if (succ) {
+            modalTitleObj.innerHTML = "You have successfully registered. Please check your email to confirm your account.";
+            modalTitleObj.onclick = this.navigateToLogin;
+            // this.router.navigate(['/login']);
+            (<any>$('#registerModal')).modal('show');
+          }
+          else{
+            modalTitleObj.innerHTML = "Unable to Register User";
+            (<any>$('#registerModal')).modal('show');
+          }
+           
+        }
+      );
+      
+
     }
+  }
+  navigateToLogin()
+  {
+    this.router.navigate(['/home']);
   }
 
 }
