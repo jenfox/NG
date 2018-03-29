@@ -1,6 +1,9 @@
-<h1>Profile Search</h1>
+<div class="container" id="profileSearch">
 
-<div *ngFor="let match of profileList">
-<a (click)="goToProfile(match.id)">{{match.firstName}} {{match.lastName}}</a>
+    <h1>Profile Search</h1>
 
+    <div *ngFor="let match of profileList">
+        <a (click)="goToProfile(match.id)">{{match.firstName}} {{match.lastName}}</a>
+
+    </div>
 </div>
