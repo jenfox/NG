@@ -28,56 +28,45 @@
         <h1>Edit Profile:</h1>
         <div>
             <form>
-                <table>
-                    <tr>
-                        <td>
-                            <label for="firstname">Firstname:
-                                <input name="firstName" [(ngModel)]="updateUser.firstName" type="text" placeholder="{{user.firstName}}" id="firstname">
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="lastname">Lastname:
-                                <input type="text" name="lastName" [(ngModel)]="updateUser.lastName" placeholder="{{user.lastName}}" id="lastname">
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="gender">Gender:
-                                <input type="radio" name="gender" [(ngModel)]="updateUser.gender" value="male">Male
-                                <input type="radio" name="gender" [(ngModel)]="updateUser.gender" value="female">Female </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="phone">Phone Number:
-                                <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber" placeholder="{{user.phone}}" id="phone">
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="DoB">Date of Birth (YYYY-MM-DD):
-                                <input type="text" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}">
-                            </label>
-                        </td>
-                    </tr>
-                    <td>
-                        <tr>
-                            <a (click)="updateProfile()" class="btn btn-primary">Submit Changes</a>
-                            <br />
-                        </tr>
-                    </td>
-                    <tr>
-                        <td id="uploadPhoto">
-                            <input type="file" name="file" id="picture" />
-                            <br/>
-                            <a (click)="uploadPic()" class="btn btn-primary ">Upload Photo!</a>
-                        </td>
-                    </tr>
-                </table>
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label for="firstname">First Name:</label>
+                        <input name="firstName" [(ngModel)]="updateUser.firstName" type="text" placeholder="{{user.firstName}}" class="form-control"
+                            id="firstname">
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="fName">Last Name:</label>
+                        <input type="text" name="lastName" [(ngModel)]="updateUser.lastName" placeholder="{{user.lastName}}" class="form-control"
+                            id="lastname">
+                    </div>
+                    <div>
+                        <br/>
+                        <label for="gender">Gender:
+                            <input type="radio" name="gender" [(ngModel)]="updateUser.gender" value="male">Male
+                            <input type="radio" name="gender" [(ngModel)]="updateUser.gender" value="female">Female
+                        </label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="phone">Phone:</label>
+                        <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber" placeholder="{{user.phone}}" class="form-control"
+                            id="phone">
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="dob">Date of Birth (YYYY-MM-DD):</label>
+                        <input type="text" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
+                            id="dob">
+                    </div>
+
+                </div>
+                <div>
+                    <a (click)="updateProfile()" class="btn btn-primary" id="submitChanges" align="center">Submit Changes</a>
+                    <br />
+                </div>
+                <div id="uploadPhoto">
+                    <input type="file" name="file" id="picture" />
+                    <br/>
+                    <a (click)="uploadPic()" class="btn btn-primary" id="uploadPhotoBtn">Upload Photo!</a>
+                </div>
             </form>
         </div>
     </div>

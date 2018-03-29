@@ -13,13 +13,13 @@
 
       <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
-            <a class="nav-link" href="./home/profile">{{user.firstName}} {{user.lastName}}</a>
+            <a id="navBtns" class="nav-link btn" href="./home/profile"><strong>{{user.firstName}} {{user.lastName}}</strong></a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="./home/feed">feed...</a>
+          <a id="navBtns" class="nav-link btn" href="./home/feed"><strong>FriendFeed</strong></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="logout()">logout</a>
+            <a id="navBtns" class="nav-link btn" (click)="logout()"><strong>Forsake Your Friends?</strong></a>
           </li>
           <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

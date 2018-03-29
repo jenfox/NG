@@ -1,0 +1,15 @@
+#profileSearch {
+    background-color: rgba(151, 151, 151, 0.178);
+    border: 2px solid ;
+    border-radius: 5px;
+    padding: 1.5em;
+    margin: .75em;
+}
+
+#searchResults {
+    border: 2px solid ;
+    border-radius: 5px;
+    padding: 1.1em;
+    margin: 1.2em;
+    background: white;
+}
