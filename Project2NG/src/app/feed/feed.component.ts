@@ -16,7 +16,16 @@ export class FeedComponent implements OnInit {
   constructor(private postService:PostService) { }
 
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.getPosts();
+  }
+
+  getPosts(){
+    this.postService.get20Posts().subscribe(
+      posts => this.posts = posts
+    );
+    // console.log("back in feed.component.oninit");
+    // console.log(this.posts[1]);
+    // console.log(this.posts);
   }
 
 }
