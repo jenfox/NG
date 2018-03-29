@@ -28,8 +28,11 @@ export class RegisterComponent implements OnInit {
       alert("Please confirm your password");
       return;
     } else {
-    this.registerservice.register(this.email, this.password, this.confirmPassword);
-      this.router.navigate(['/']);
+      //get text to display to modal
+      let text = this.registerservice.register(this.email, this.password, this.confirmPassword);
+      console.log(text);
+      document.getElementById('modalTitle').innerHTML = text;
+      (<any>$('#registerModal')).modal('show');
     }
   }
 
