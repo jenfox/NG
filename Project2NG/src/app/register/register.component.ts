@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   register(){
     let modalTitle = document.getElementById('modalTitle');
 
+
     if(this.email == ""){
       modalTitle.innerHTML = "Please provide a valid email";
       (<any>$('#registerModal')).modal('show');
@@ -34,7 +35,6 @@ export class RegisterComponent implements OnInit {
      (<any>$('#registerModal')).modal('show');
       return;
     } else { 
-
       //try to register
        this.registerservice.register(this.email, this.password, this.confirmPassword).subscribe(
         (succ: any) => {
@@ -52,7 +52,6 @@ export class RegisterComponent implements OnInit {
            
         }
       );
-
       
     }
   }
