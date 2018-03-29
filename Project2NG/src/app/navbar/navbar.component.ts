@@ -16,6 +16,10 @@ constructor(private router:Router, private cookie:CookieService, public navbarSe
   
   public user:User= new User;
 
+  public me:User = <User>this.cookie.getObject('user');
+
+  uProfilePic: string = 'https://s3.amazonaws.com/friendscape/' + this.me.profileUrl;
+
   ngOnInit() {
    this.user= <User>this.cookie.getObject('user');
    if (!this.user.firstName){
