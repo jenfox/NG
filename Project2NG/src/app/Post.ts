@@ -3,10 +3,14 @@ import { Injectable } from "@angular/core";
 
 export class Post{
     
-    body:String;
+    id:number;
+    content:String;
+    youtubeUrl:String;
+    imageUrl:String;
+    likes:number[];
     
-    constructor(body:String )
+    constructor(content:String )
     {
-        this.body = body;
+        this.content = content;
     }
 }
