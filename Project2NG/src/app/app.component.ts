@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-  navbar:boolean= false;
+  navbar = false;
   title = 'app';
 
-  showNavbar(){
-    this.navbar=true;
+  showNavbar() {
+    this.navbar = true;
   }
-  hideNavbar(){
-    this.navbar=false;
+  hideNavbar() {
+    this.navbar = false;
   }
 
 }

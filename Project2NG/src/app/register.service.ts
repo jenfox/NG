@@ -13,10 +13,10 @@ export class RegisterService {
   register(email: string, password: string, confirmPassword: string): Observable<boolean> {
     console.log("P: " + password + "; CP: " + confirmPassword);
     const data = {
-      "email": email,
-      "password": password,
-      "confirmPassword": confirmPassword
-    }
+      'email': email,
+      'password': password,
+      'confirmPassword': confirmPassword
+    };
     const header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

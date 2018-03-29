@@ -1,43 +1,43 @@
-
-
 <div class="container">
   <div class="row" id="pwd-container">
     <div class="col-md-4"></div>
-    
+
     <div class="col-md-4">
-        
+
       <section class="login-form">
-        
+
         <form method="post" action="/home" role="login">
           <h1>Register</h1>
-          <input [(ngModel)]="email" type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
-          
-          <input [(ngModel)]="password" name="password" type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          <input [(ngModel)]="email" type="email" name="email" placeholder="Email" required class="form-control input-lg" />
+
+          <input [(ngModel)]="password" name="password" type="password" class="form-control input-lg" id="password" placeholder="Password"
+            required="" />
           <div class="pwstrength_viewport_progress"></div>
-          
-          <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control input-lg" id="confirmPassword" placeholder="Confirm Password" required="" />
+
+          <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control input-lg" id="confirmPassword"
+            placeholder="Confirm Password" required="" />
           <a (click)="register()" class="btn btn-lg btn-primary btn-block">Register</a>
-          <a href="./" class="btn btn-sm btn-secondary btn-block" >Cancel</a>
+          <a href="./" class="btn btn-sm btn-secondary btn-block">Cancel</a>
         </form>
-       
-      </section>  
-      </div>
-</div>
+
+      </section>
+    </div>
+  </div>
 
 
- <!--Modal-->
- <div class="modal" id="registerModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle">Unable to register user</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="this.router.navigate(['/register'])" data-dismiss="modal" class="btn btn-danger">Understood</button>
+  <!--Modal-->
+  <div class="modal" id="registerModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Unable to register user</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="this.router.navigate(['/register'])" data-dismiss="modal" class="btn btn-danger">Understood</button>
+        </div>
       </div>
     </div>
   </div>
-</div>

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PostService {
@@ -18,30 +18,29 @@ export class PostService {
   constructor(private http: HttpClient, private cookie: CookieService, private router: Router) { }
 
   fetchPosts(): Post[] {
-   return this.posts;
+    return this.posts;
   }
 
   getPosts(uid): Observable<Post[]> {
     const url = 'http://localhost:8080/posts/feed/' + uid;
     const header = {
-      headers : new HttpHeaders({
-        'Content-Type' : 'application/json'
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
       })
-     };
-   return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
+    };
+    return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
   }
 
- get20Posts(): Observable<Post[]> {
-  const url = 'http://localhost:8080/posts/feed';
-  const header = {
-    headers : new HttpHeaders({
-      'Content-Type' : 'application/json'
-    })
-   };
- return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
+  get20Posts(): Observable<Post[]> {
+    const url = 'http://localhost:8080/posts/feed';
+    const header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
 
- }
-
+  }
 
   createPost(post : String, formdata: FormData) {
 
@@ -84,7 +83,7 @@ export class PostService {
         )
   })
 
- }
+  }
 
 
 
