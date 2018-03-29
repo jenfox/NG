@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
 import {User} from '../user';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,9 +14,12 @@ export class ProfileComponent implements OnInit {
 
   private updateUser:User  =new User;
   public user:User =<User>this.cookie.getObject('user');
-  uProfilePic:string = 'http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg';
+  uProfilePic:string = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
   editMode: boolean = false;
+
   constructor(private router:Router, private http:HttpClient, public navbarService:NavbarService, private cookie:CookieService) { }
+
+
 
   ngOnInit() {
     this.navbarService.show();
@@ -44,6 +47,33 @@ export class ProfileComponent implements OnInit {
     }
      
     this.http.post(url, data, header).subscribe(
+      (succ:any)=>{
+        console.log(succ);
+        this.user = succ;
+        this.cookie.putObject('user',this.user);
+        console.log(this.cookie.get('user'), "is thine cookie");
+        this.router.navigateByUrl("/home/profile")
+        
+  })
+}
+
+uploadPic(){
+  let pic : any;
+   pic = document.getElementById("picture");
+  let files = [];
+   let filename: any;
+   files = pic.files;
+
+   let theFile : File = files[0];
+  console.log(pic);
+  console.log(theFile);
+  const id = this.user.id;
+  const url:string='http://localhost:8080/profilePictures/'+id;
+  let formdata: FormData = new FormData();
+
+    formdata.append('multipartFile', theFile);
+ 
+    this.http.post(url, formdata).subscribe(
       (succ:any)=>{
         console.log(succ);
         this.user = succ;
