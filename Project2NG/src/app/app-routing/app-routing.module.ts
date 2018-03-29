@@ -35,7 +35,8 @@ const routes: Routes = [
       {path:'profileList', component:ProfileListComponent},
       {path:'otherPeep/:id', component:OtherProfileComponent}
     ]
-  }
+  },
+  { path: '**', component: LoginComponent }
 
 ];
 

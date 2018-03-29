@@ -9,29 +9,30 @@ import { Router } from '@angular/router';
 export class RegisterService {
 
 
-  constructor(private http:HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  register(email:string, password:string, confirmPassword:string){
-    console.log("P: "+password+"; CP: "+confirmPassword);
-    if(password != confirmPassword){
-      alert("Passwords do not match. Registration failed.")
-      return;
+  register(email: string, password: string, confirmPassword: string): string {
+    console.log("P: " + password + "; CP: " + confirmPassword);
+    if (password != confirmPassword) {
+      return "Passwords do not match. Registration failed.";
     }
-    const data={
+    const data = {
       "email": email,
-      "password":password,
-      "confirmPassword":confirmPassword
+      "password": password,
+      "confirmPassword": confirmPassword
     }
-    const header= {
-      headers:new HttpHeaders({
-        'Content-Type':'application/json'
+    const header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
       })
     }
     this.http.post('http://localhost:8080/register', data, header).subscribe(
-      (succ:any)=>{
+      (succ: any) => {
         console.log(succ);
-        alert("You have successfully registered. Please check your email to confirm your account.");
-        this.router.navigateByUrl("/")
+        if (succ) 
+          return "You have successfully registered. Please check your email to confirm your account.";
+        else
+          return "Unable to register user";
       }
     )
   }

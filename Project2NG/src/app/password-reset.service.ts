@@ -9,20 +9,20 @@ export class PasswordResetService {
 
   public reset(email: string) {
     const data = {
-      "email": email
-    }
+      'email': email
+    };
     const header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    }
+    };
     this.http.post('http://localhost:8080/reset', data, header).subscribe(
       (succ: any) => {
         console.log(succ);
-        //alert("If your email is valid you will recieve an email with a temporary password.")
-        this.router.navigateByUrl("/")
+        // alert("If your email is valid you will recieve an email with a temporary password.")
+        this.router.navigateByUrl('/');
       }
-    )
+    );
   }
 
 

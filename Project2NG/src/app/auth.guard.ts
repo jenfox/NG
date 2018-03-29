@@ -15,11 +15,11 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     this.user = <User>this.cookie.getObject('user');
-    if (this.user.email){
+    if (this.user && this.user.email){
       console.log(this.user.email)
       return true;
     }
-    console.log(this.user.email)
+    console.log(this.user)
     return false;
   }
 }

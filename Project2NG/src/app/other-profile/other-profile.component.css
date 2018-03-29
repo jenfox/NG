@@ -255,3 +255,29 @@
 #uploadPhoto {
     padding: 1.2em;
 }
+
+#feed {
+    background-color: rgba(151, 151, 151, 0.178);
+    border: 2px solid ;
+    border-radius: 5px;
+    padding: 1.5em;
+    margin: .75em;
+}
+
+#content {
+    border: 2px solid ;
+    border-radius: 5px;
+    padding: 1.1em;
+    margin: 1.2em;
+    background: white;
+}
+
+
+#like-btn {
+    margin-right: 1.1255em;
+    color: #fff;
+}
+
+#author{
+    font-size: 16pt;
+}

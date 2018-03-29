@@ -4,45 +4,44 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
-import {Observable} from 'rxjs/Observable'
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class PostService {
 
-  
-
-  posts:Post[] = [
-  ]
 
 
-  constructor(private http:HttpClient, private cookie : CookieService, private router : Router) { }
+  posts: Post[] = [
+  ];
 
-  fetchPosts(): Post[]{
+
+  constructor(private http: HttpClient, private cookie: CookieService, private router: Router) { }
+
+  fetchPosts(): Post[] {
    return this.posts;
   }
 
-  getPosts(): Post[]
-  {
-    return this.posts;
+  getPosts(uid): Observable<Post[]> {
+    const url = 'http://localhost:8080/posts/feed/' + uid;
+    const header = {
+      headers : new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+     };
+   return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
   }
-   // "/posts/feed" -> get method 
+
  get20Posts(): Observable<Post[]> {
-  const url:string = 'http://localhost:8080/posts/feed';
+  const url = 'http://localhost:8080/posts/feed';
   const header = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json'
     })
    };
- return <Observable<Post[]>>this.http.get(url,header)//.subscribe(
-  //   (succ:any)=>{
-  //     console.log(succ);
-  //     this.posts = succ;
-  //     console.log(this.posts+" is the posts array")
-  //   }
-  // );
-  // console.log(this.posts+" is the posts array")
-  // return this.posts;
+ return <Observable<Post[]>>this.http.get(url, header); // .subscribe(
+
  }
+
 
   createPost(post : String, formdata: FormData) {
 
@@ -84,9 +83,6 @@ export class PostService {
             }
         )
   })
-   // Http request (post)
-   
-
 
  }
 
