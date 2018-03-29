@@ -79,7 +79,7 @@ uploadPic(){
         this.user = succ;
         this.cookie.putObject('user',this.user);
         console.log(this.cookie.get('user'), "is thine cookie");
-        this.router.navigateByUrl("/home/profile")
+        window.location.reload();
         
   })
 }

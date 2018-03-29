@@ -15,7 +15,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { FeedComponent } from './feed/feed.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
-import { LikeComponent } from './like/like.component';
 import { ProfilePicService } from './profile-pic.service';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { NavbarService } from './navbar.service';
@@ -29,6 +28,7 @@ import {FindUsersService} from './find-users.service';
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { ChangePasswordComponent } from './change-password/change-password.component'
 import { AuthGuard } from './auth.guard';
+import { LikePostService } from './like-post.service';
 
 
 
@@ -42,7 +42,6 @@ import { AuthGuard } from './auth.guard';
     RegisterComponent,
     FeedComponent,
     PasswordResetComponent,
-    LikeComponent,
     CreatePostComponent,
     HomeComponent,
     ProfileListComponent,
@@ -66,7 +65,8 @@ import { AuthGuard } from './auth.guard';
     CookieService,
     FindUsersService,
     PostService,
-    AuthGuard
+    AuthGuard,
+    LikePostService
   ],
   bootstrap: [AppComponent]
 })
