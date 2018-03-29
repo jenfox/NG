@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       modalTitle.innerHTML = "Please confirm your password";
      (<any>$('#registerModal')).modal('show');
       return;
-    } else {
+    } else { 
 
       //try to register
        this.registerservice.register(this.email, this.password, this.confirmPassword).subscribe(
