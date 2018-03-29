@@ -33,7 +33,12 @@ export class RegisterComponent implements OnInit {
       console.log(text);
       document.getElementById('modalTitle').innerHTML = text;
       (<any>$('#registerModal')).modal('show');
+
     }
+  }
+  navigateToLogin()
+  {
+    this.router.navigate(['/home']);
   }
 
 }
