@@ -19,8 +19,8 @@ export class ProfileListComponent implements OnInit {
     console.log(this.profileList);
   }
 
-  goToProfile(id:number){
-    this.router.navigateByUrl("")//navigate to wherever user profile lives.
+  goToProfile(userId:number){
+    this.router.navigate(["/home/otherPeep/",userId])//navigate to wherever user profile lives.
   }
 
 }
