@@ -29,6 +29,8 @@ import { ProfileListComponent } from './profile-list/profile-list.component';
 import { ChangePasswordComponent } from './change-password/change-password.component'
 import { AuthGuard } from './auth.guard';
 import { LikePostService } from './like-post.service';
+import { OtherProfileComponent } from './other-profile/other-profile.component';
+import { FindUserService } from './find-user.service';
 
 
 
@@ -45,7 +47,8 @@ import { LikePostService } from './like-post.service';
     CreatePostComponent,
     HomeComponent,
     ProfileListComponent,
-    ChangePasswordComponent, 
+    ChangePasswordComponent,
+    OtherProfileComponent, 
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { LikePostService } from './like-post.service';
     FindUsersService,
     PostService,
     AuthGuard,
-    LikePostService
+    LikePostService,
+    FindUserService
   ],
   bootstrap: [AppComponent]
 })

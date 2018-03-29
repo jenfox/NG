@@ -9,6 +9,7 @@ import { HomeComponent } from '../home/home.component';
 import {RegisterComponent} from '../register/register.component';
 import {ProfileListComponent} from '../profile-list/profile-list.component'
 import { AuthGuard } from '../auth.guard';
+import { OtherProfileComponent } from '../other-profile/other-profile.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
       {path:'', redirectTo:'feed', pathMatch:'full'},
       {path:'profile', component: ProfileComponent},
       {path:'feed', component: FeedComponent},
-      {path:'profileList', component:ProfileListComponent}
+      {path:'profileList', component:ProfileListComponent},
+      {path:'otherPeep/:id', component:OtherProfileComponent}
     ]
   }
 
