@@ -18,10 +18,6 @@
     </div>
 </div>
 
-<app-create-post></app-create-post>
-
-<!--  -->
-
 <div *ngIf="editMode">
     <app-change-password></app-change-password>
     <div align="center" id="editProfile">
@@ -48,12 +44,12 @@
                     </div>
                     <div class="col-sm-5">
                         <label for="phone">Phone:</label>
-                        <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber" placeholder="{{user.phone}}" class="form-control"
+                        <input type="tel" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber" placeholder="{{user.phone}}" class="form-control"
                             id="phone">
                     </div>
                     <div class="col-sm-5">
                         <label for="dob">Date of Birth (YYYY-MM-DD):</label>
-                        <input type="text" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
+                        <input type="date" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
                             id="dob">
                     </div>
 
