@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
-import {User} from '../user';
+import { User } from '../user';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  private updateUser: User  = new User;
+  private updateUser: User = new User;
   public user: User = <User>this.cookie.getObject('user');
   uProfilePic: string = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
   editMode = false;
@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
     this.user = <User>this.cookie.getObject('user');
   }
 
-// on submit of form, need to send a post to db of new info.
+  // on submit of form, need to send a post to db of new info.
   updateProfile() {
     console.log(this.updateUser);
     const id = this.user.id;
@@ -54,24 +54,24 @@ export class ProfileComponent implements OnInit {
         console.log(this.cookie.get('user'), 'is thine cookie');
         this.router.navigateByUrl('/home/profile');
 
-  });
-  (<any>$('#updateModal')).modal('show');
+      });
+    (<any>$('#updateModal')).modal('show');
 
-}
+  }
 
-uploadPic() {
-  let pic: any;
-   pic = document.getElementById('picture');
-  let files = [];
-   // let filename: any;
-   files = pic.files;
+  uploadPic() {
+    let pic: any;
+    pic = document.getElementById('picture');
+    let files = [];
+    // let filename: any;
+    files = pic.files;
 
-   const theFile: File = files[0];
-  console.log(pic);
-  console.log(theFile);
-  const id = this.user.id;
-  const url: string = 'http://localhost:8080/profilePictures/' + id;
-  const formdata: FormData = new FormData();
+    const theFile: File = files[0];
+    console.log(pic);
+    console.log(theFile);
+    const id = this.user.id;
+    const url: string = 'http://localhost:8080/profilePictures/' + id;
+    const formdata: FormData = new FormData();
 
     formdata.append('multipartFile', theFile);
 
@@ -83,17 +83,17 @@ uploadPic() {
         console.log(this.cookie.get('user'), 'is thine cookie');
         window.location.reload();
 
-  });
-  (<any>$('#updateModal')).modal('show');
-}
-
-editModeToggle() {
-  if (this.editMode) {
-    this.editMode = false;
-  } else {
-    this.editMode = true;
+      });
+    (<any>$('#updateModal')).modal('show');
   }
-}
+
+  editModeToggle() {
+    if (this.editMode) {
+      this.editMode = false;
+    } else {
+      this.editMode = true;
+    }
+  }
 
   // need live update of fields from db.
 

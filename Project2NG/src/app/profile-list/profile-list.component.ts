@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
 })
 export class ProfileListComponent implements OnInit {
 
-  public profileList:User[]
+  public profileList: User[];
 
-  constructor(private router:Router, private findUsersService:FindUsersService) { }
+  constructor(private router: Router, private findUsersService: FindUsersService) { }
 
   ngOnInit() {
-   this.findUsersService.findUsers().subscribe(users=>this.profileList = users);
+    this.findUsersService.findUsers().subscribe(users => this.profileList = users);
   }
 
-  goToProfile(userId:number){
-    this.router.navigate(["/home/otherPeep/",userId])//navigate to wherever user profile lives.
+  goToProfile(userId: number) {
+    this.router.navigate(['/home/otherPeep/', userId]); // navigate to wherever user profile lives.
   }
 
 }

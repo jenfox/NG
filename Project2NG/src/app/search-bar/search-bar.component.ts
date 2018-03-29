@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
 })
 export class SearchBarComponent implements OnInit {
 
-  toFind:string;
-  constructor(private findUsersService:FindUsersService, private router:Router) { }
+  toFind: string;
+  constructor(private findUsersService: FindUsersService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  findUsers(){
+  findUsers() {
     console.log(this.toFind);
     this.findUsersService.setUserName(this.toFind);
-    this.router.navigate(['/home/profileList'])
+    this.router.navigate(['/home/profileList']);
   }
 
 }
