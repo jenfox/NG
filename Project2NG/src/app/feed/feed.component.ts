@@ -13,18 +13,15 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 export class FeedComponent implements OnInit {
 
   posts: Post[];
-  numLikes:number;
-  user:User;
+  numLikes: number;
+  user: User;
 
-  constructor(private postService: PostService, private likepostservice: LikePostService, 
-    private cookie: CookieService) 
-    { 
-
-    }
+  constructor(private postService: PostService, private likepostservice: LikePostService, private cookie: CookieService) {
+  }
 
   ngOnInit() {
     this.getPosts();
-    //init user
+    // init user
     this.user = <User>this.cookie.getObject('user');
   }
 
@@ -32,29 +29,20 @@ export class FeedComponent implements OnInit {
     this.postService.get20Posts().subscribe(
       posts => this.posts = posts
     );
-    // console.log("back in feed.component.oninit");
-    // console.log(this.posts[1]);
-    // console.log(this.posts);
   }
 
   likeThis(postId: number) {
-    console.log("liked " + postId)
-    console.log(this.posts)
-    //if this user is NOT in the array of users that liked the post
-    //add them to the array.
-    //update array size
-    //put arrraysize into numLikes
+    console.log('liked ' + postId);
+    console.log(this.posts);
 
     this.likepostservice.like(postId).subscribe(
       post => this.posts.forEach(function (item, i, posts) {
-        if (item.id == post.id)
-          posts[i] = post
+        // tslint:disable-next-line:triple-equals
+        if (item.id == post.id) {
+          posts[i] = post;
+        }
       })
-
     );
-
-    
-
   }
 
 }
