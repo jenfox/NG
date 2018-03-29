@@ -55,6 +55,8 @@ export class ProfileComponent implements OnInit {
         this.router.navigateByUrl('/home/profile');
 
   });
+  (<any>$('#updateModal')).modal('show');
+
 }
 
 uploadPic() {
@@ -82,6 +84,7 @@ uploadPic() {
         window.location.reload();
 
   });
+  (<any>$('#updateModal')).modal('show');
 }
 
 editModeToggle() {
@@ -92,10 +95,10 @@ editModeToggle() {
   }
 }
 
-
-
   // need live update of fields from db.
 
   // onclick for reset password link needs to send password reset email.
-
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 }

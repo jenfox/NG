@@ -38,7 +38,7 @@ export class OtherProfileComponent implements OnInit {
     this.uProfilePic = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
   }
   loadOtherFeed(userId: number) {
-    
+
   }
 
 
