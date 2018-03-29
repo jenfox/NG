@@ -43,14 +43,14 @@ export class PostService {
   }
 
 
-  createPost(post : String, formdata: FormData) {
+  createPost(post: String, formdata: FormData) {
 
-    var resp: Post;
-    var poster: Post = new Post(post);
+    let resp: Post;
+    const poster: Post = new Post(post);
 
-    const url2:string='http://localhost:8080/posts/pictures';
+    const url2 = 'http://localhost:8080/posts/pictures';
     this.http.post(url2, formdata).subscribe(
-      (succ:any)=>{
+      (succ: any) => {
         console.log(succ);
         resp = succ;
         poster.imageUrl = resp.imageUrl;
@@ -62,27 +62,30 @@ export class PostService {
 
         const url = 'http://localhost:8080/posts';
         const data = {
-          'content' : poster.content,
-          'imageUrl' : poster.imageUrl,
-          'author' : { 'id' : id }
+          'content': poster.content,
+          'imageUrl': poster.imageUrl,
+          'author': { 'id': id }
         };
 
         const header = {
-          headers : new HttpHeaders({
-            'Content-Type' : 'application/json'
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json'
           })
         };
         console.log('data = ' + data.content);
         this.http.post(url, data).subscribe(
-          (succ:any) => {
+          // tslint:disable-next-line:no-shadowed-variable
+          (succ: any) => {
             console.log(succ);
-            
+
             // route to the homepage
             window.location.reload();
 
-            }
-        )
-  })
+          }
+        );
+      });
 
-  }}
-  
+
+  }
+}
+

@@ -3,13 +3,21 @@
     border: 2px solid ;
     border-radius: 5px;
     padding: 1.5em;
-    margin: .75em;
+    margin: 0 auto;
+    margin-top: 1em;
+    max-width: 700px;
 }
 
 #searchResults {
     border: 2px solid ;
     border-radius: 5px;
     padding: 1.1em;
-    margin: 1.2em;
+    /* margin: 1.2em; */
     background: white;
+}
+
+.centerDiv {
+    margin: 0 auto;
+     max-width: 700px;
+     
 }
