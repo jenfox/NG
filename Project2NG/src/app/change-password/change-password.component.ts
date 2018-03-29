@@ -28,10 +28,15 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   public update() {
+    let passModal = document.getElementById('passwordModal');
+    let passModalTitle = document.getElementById('passwordModalTitle');
+
     this.user = <User>this.cookie.getObject('user');
     // tslint:disable-next-line:triple-equals
     if (this.newpassword != this.confnewpassword) {
-      alert('Your new passwords do not match.');
+      // alert('Your new passwords do not match.');
+      passModalTitle.innerHTML='Your new passwords do not match.';
+      (<any>$('#passwordModal')).modal('show');
       return;
     }
     const data = {
@@ -58,12 +63,15 @@ export class ChangePasswordComponent implements OnInit {
             // tslint:disable-next-line:no-shadowed-variable
             (succ: any) => {
               console.log(succ);
-              alert('You have successfully changed your password. ');
+              (<any>$('#passwordModal')).modal('show');
               this.router.navigateByUrl('/home/profile');
             }
           );
         } else {
-          alert('Incorrect Password');
+          //incorrect password 
+          passModalTitle.innerHTML='Incorrect Password';
+          (<any>$('#passwordModal')).modal('show');
+
         }
       }
     );
