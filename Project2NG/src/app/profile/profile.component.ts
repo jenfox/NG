@@ -12,12 +12,12 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  private updateUser:User  =new User;
-  public user:User =<User>this.cookie.getObject('user');
-  uProfilePic:string = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
-  editMode: boolean = false;
+  private updateUser: User  = new User;
+  public user: User = <User>this.cookie.getObject('user');
+  uProfilePic: string = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
+  editMode = false;
 
-  constructor(private router:Router, private http:HttpClient, public navbarService:NavbarService, private cookie:CookieService) { }
+  constructor(private router: Router, private http: HttpClient, public navbarService: NavbarService, private cookie: CookieService) { }
 
 
 
@@ -27,80 +27,78 @@ export class ProfileComponent implements OnInit {
     this.user = <User>this.cookie.getObject('user');
   }
 
-//on submit of form, need to send a post to db of new info.
-  updateProfile(){
+// on submit of form, need to send a post to db of new info.
+  updateProfile() {
     console.log(this.updateUser);
     const id = this.user.id;
-    console.log(id+" is the id you are appending");
-    const url:string='http://localhost:8080/users/'+id;
-    const data={
-      "firstName": this.updateUser.firstName,
-      "lastName": this.updateUser.lastName,
-      "gender": this.updateUser.gender,
-      "phoneNumber": this.updateUser.phoneNumber,
-      "DoB": this.updateUser.dateOfBirth      
-    }
-    const header= {
-      headers:new HttpHeaders({
-        'Content-Type':'application/json'
+    console.log(id + ' is the id you are appending');
+    const url: string = 'http://localhost:8080/users/' + id;
+    const data = {
+      'firstName': this.updateUser.firstName,
+      'lastName': this.updateUser.lastName,
+      'gender': this.updateUser.gender,
+      'phoneNumber': this.updateUser.phoneNumber,
+      'DoB': this.updateUser.dateOfBirth
+    };
+    const header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
       })
-    }
-     
+    };
+
     this.http.post(url, data, header).subscribe(
-      (succ:any)=>{
+      (succ: any) => {
         console.log(succ);
         this.user = succ;
-        this.cookie.putObject('user',this.user);
-        console.log(this.cookie.get('user'), "is thine cookie");
-        this.router.navigateByUrl("/home/profile")
-        
+        this.cookie.putObject('user', this.user);
+        console.log(this.cookie.get('user'), 'is thine cookie');
+        this.router.navigateByUrl('/home/profile');
+
   });
   (<any>$('#updateModal')).modal('show');
-  
+
 }
 
-uploadPic(){
-  let pic : any;
-   pic = document.getElementById("picture");
+uploadPic() {
+  let pic: any;
+   pic = document.getElementById('picture');
   let files = [];
-   let filename: any;
+   // let filename: any;
    files = pic.files;
 
-   let theFile : File = files[0];
+   const theFile: File = files[0];
   console.log(pic);
   console.log(theFile);
   const id = this.user.id;
-  const url:string='http://localhost:8080/profilePictures/'+id;
-  let formdata: FormData = new FormData();
+  const url: string = 'http://localhost:8080/profilePictures/' + id;
+  const formdata: FormData = new FormData();
 
     formdata.append('multipartFile', theFile);
- 
+
     this.http.post(url, formdata).subscribe(
-      (succ:any)=>{
+      (succ: any) => {
         console.log(succ);
         this.user = succ;
-        this.cookie.putObject('user',this.user);
-        console.log(this.cookie.get('user'), "is thine cookie");
+        this.cookie.putObject('user', this.user);
+        console.log(this.cookie.get('user'), 'is thine cookie');
         window.location.reload();
-        
+
   });
   (<any>$('#updateModal')).modal('show');
 }
-  
-editModeToggle(){
-  if (this.editMode)
-  {
-    this.editMode=false;
-  }else{
-    this.editMode=true;
+
+editModeToggle() {
+  if (this.editMode) {
+    this.editMode = false;
+  } else {
+    this.editMode = true;
   }
 }
-  
-  //need live update of fields from db.
 
-  //onclick for reset password link needs to send password reset email. 
-  scrollToTop()
-  {
-    window.scrollTo(0,0);
+  // need live update of fields from db.
+
+  // onclick for reset password link needs to send password reset email.
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 }
