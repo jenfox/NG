@@ -54,9 +54,9 @@ export class ProfileComponent implements OnInit {
         console.log(this.cookie.get('user'), "is thine cookie");
         this.router.navigateByUrl("/home/profile")
         
-  })
-  //scroll to top
-  window.scrollTo(0, 0)
+  });
+  (<any>$('#updateModal')).modal('show');
+  
 }
 
 uploadPic(){
@@ -83,9 +83,8 @@ uploadPic(){
         console.log(this.cookie.get('user'), "is thine cookie");
         window.location.reload();
         
-  })
-  //scroll to top
-  window.scrollTo(0, 0)
+  });
+  (<any>$('#updateModal')).modal('show');
 }
   
 editModeToggle(){
@@ -100,5 +99,8 @@ editModeToggle(){
   //need live update of fields from db.
 
   //onclick for reset password link needs to send password reset email. 
-
+  scrollToTop()
+  {
+    window.scrollTo(0,0);
+  }
 }
