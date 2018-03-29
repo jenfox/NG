@@ -3,6 +3,7 @@
   <div *ngFor="let post of posts" id="feed">
     <div id="author">{{post.author.firstName}} {{post.author.lastName}}</div>
     <div id="content">{{post.content}}</div>
+    <div id="content" *ngIf="post.imageUrl"><img src="https://s3.amazonaws.com/friendscape/{{post.imageUrl}}" alt="post pic"></div>
 
     <!--User liked post alread -->
     <div *ngIf="post.likes != null; else noLikes">
