@@ -13,51 +13,70 @@ export class RegisterComponent implements OnInit {
   email = '';
   password = '';
   confirmPassword = '';
+
   constructor(private registerservice: RegisterService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+    
   }
-  register(){
-    let modalTitleObj = document.getElementById('modalTitle');
 
-    if(this.email == ""){
+
+  register() {
+
+    let modalTitleObj = document.getElementById('modalTitle');
+    let modalBtn = document.getElementById('modalBtn');
+    let subBtn = document.getElementById('submitBtn');
+    subBtn.setAttribute("disabled", "disabled");
+
+
+    if (this.email == "") {
       modalTitleObj.innerHTML = "Please provide a valid email";
       (<any>$('#registerModal')).modal('show');
-      return;
-    } else if(this.password == "" ){
+      subBtn.removeAttribute("disabled");
+    } else if (this.password == "") {
       modalTitleObj.innerHTML = "Please fill out the password field";
       (<any>$('#registerModal')).modal('show');
-      return;
-    } else if(this.confirmPassword == "") {
+      subBtn.removeAttribute("disabled");
+    } else if (this.confirmPassword == "") {
       modalTitleObj.innerHTML = "Please confirm your password";
-     (<any>$('#registerModal')).modal('show');
-      return;
-    } else { 
+      (<any>$('#registerModal')).modal('show');
+      subBtn.removeAttribute("disabled");
+    } else {
       //try to register
-       this.registerservice.register(this.email, this.password, this.confirmPassword).subscribe(
-        (succ: any) => {
-          console.log(succ);
-          if (succ) {
-            modalTitleObj.innerHTML = "You have successfully registered. Please check your email to confirm your account.";
-            modalTitleObj.onclick = this.navigateToLogin;
-            // this.router.navigate(['/login']);
-            (<any>$('#registerModal')).modal('show');
-          }
-          else{
+      this.registerservice.register(this.email, this.password, this.confirmPassword)
+        .subscribe(
+          result => {
+            console.log(result);
+            if (result) {
+              modalTitleObj.innerHTML = "You have successfully registered. Please check your email to confirm your account.";
+             let rtr = this.router;
+              modalBtn.onclick = function(){rtr.navigate(['/login']);};
+              // this.router.navigate(['/login']);
+              (<any>$('#registerModal')).modal('show');
+              return;
+            }
+            else {
+              modalTitleObj.innerHTML = "Unable to Register User";
+              (<any>$('#registerModal')).modal('show');
+              subBtn.removeAttribute("disabled");
+            }
+
+          },
+          error => {
             modalTitleObj.innerHTML = "Unable to Register User";
             (<any>$('#registerModal')).modal('show');
-          }
-           
-        }
-      );
-      
-
+            subBtn.removeAttribute("disabled");
+          },
+          () => {
+            // 'onCompleted' callback.
+            // No errors, route to new page here
+          });
     }
-  }
-  navigateToLogin()
-  {
-    this.router.navigate(['/home']);
+
   }
 
 }
+
+
 
