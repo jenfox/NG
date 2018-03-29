@@ -4,8 +4,11 @@
             <!-- What goes here? -->
         </div>
         <div class="avatar">
-            <img src="{{uProfilePic}}" alt="profile pic">
+            <div *ngIf='this.user.profileUrl'>
+                <img src="{{uProfilePic}}" alt="profile pic">
+            </div>
         </div>
+        <br><br>
         <div class="info">
             <div class="desc">First Name: {{user.firstName}}</div>
             <div class="desc">Last Name: {{user.lastName}}</div>

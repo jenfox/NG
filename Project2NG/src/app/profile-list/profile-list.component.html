@@ -3,7 +3,7 @@
 
     <div *ngFor="let match of profileList">
         <div class="container" id="searchResults">
-            <a (click)="goToProfile(match.id)">{{match.firstName}} {{match.lastName}}</a>
+            <button class="btn btn-light" (click)="goToProfile(match.id)">{{match.firstName}} {{match.lastName}}</button>
         </div>
     </div>
 </div>
