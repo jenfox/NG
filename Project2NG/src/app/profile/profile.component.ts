@@ -4,6 +4,7 @@ import { User } from '../user';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { PostService } from '../posts/post.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,15 +17,27 @@ export class ProfileComponent implements OnInit {
   public user: User = <User>this.cookie.getObject('user');
   uProfilePic: string = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
   editMode = false;
+  private posts;
+  private userId;
 
-  constructor(private router: Router, private http: HttpClient, public navbarService: NavbarService, private cookie: CookieService) { }
+  constructor(private router: Router, private http: HttpClient, public navbarService: NavbarService, private cookie: CookieService,
+        private postService: PostService) { }
 
 
 
   ngOnInit() {
     this.navbarService.show();
-
     this.user = <User>this.cookie.getObject('user');
+    this.userId = this.user.id;
+
+    this.postService.getPosts(this.userId).subscribe(
+      (succ: any) => {
+        console.log(succ);
+        this.posts = succ;
+      }
+    );
+    console.log(this.posts);
+
   }
 
   // on submit of form, need to send a post to db of new info.
