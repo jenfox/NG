@@ -55,6 +55,8 @@ export class ProfileComponent implements OnInit {
         this.router.navigateByUrl("/home/profile")
         
   })
+  //scroll to top
+  window.scrollTo(0, 0)
 }
 
 uploadPic(){
@@ -82,6 +84,8 @@ uploadPic(){
         window.location.reload();
         
   })
+  //scroll to top
+  window.scrollTo(0, 0)
 }
   
 editModeToggle(){
@@ -92,8 +96,6 @@ editModeToggle(){
     this.editMode=true;
   }
 }
-
-  
   
   //need live update of fields from db.
 
