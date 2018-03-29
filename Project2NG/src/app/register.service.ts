@@ -12,28 +12,30 @@ export class RegisterService {
   constructor(private http: HttpClient, private router: Router) { }
 
   register(email: string, password: string, confirmPassword: string): string {
-    console.log("P: " + password + "; CP: " + confirmPassword);
+    console.log('P: ' + password + '; CP: ' + confirmPassword);
+    // tslint:disable-next-line:triple-equals
     if (password != confirmPassword) {
-      return "Passwords do not match. Registration failed.";
+      return 'Passwords do not match. Registration failed.';
     }
     const data = {
-      "email": email,
-      "password": password,
-      "confirmPassword": confirmPassword
-    }
+      'email': email,
+      'password': password,
+      'confirmPassword': confirmPassword
+    };
     const header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    }
+    };
     this.http.post('http://localhost:8080/register', data, header).subscribe(
       (succ: any) => {
         console.log(succ);
-        if (succ) 
-          return "You have successfully registered. Please check your email to confirm your account.";
-        else
-          return "Unable to register user";
+        if (succ) {
+          return 'You have successfully registered. Please check your email to confirm your account.';
+        } else {
+          return 'Unable to register user';
+        }
       }
-    )
+    );
   }
 }

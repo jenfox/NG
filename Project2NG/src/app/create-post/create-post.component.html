@@ -1,7 +1,11 @@
 <div id="creatPostComponent">
     <form class="form-group">
-        <label for="Post"> <h4> Post: </h4> </label>
-        <textarea [(ngModel)]="userPost" class="form-control" name="userPost" id="Post" cols="10" rows="10" ></textarea>
-        <div id="psot-bnt" align="right"><a (click) = "writePost()" class="btn btn-primary" name="writePost" > Post </a> </div> 
+        <label for="Post">
+            <h4> Post: </h4>
+        </label>
+        <textarea [(ngModel)]="userPost" class="form-control" name="userPost" id="Post" cols="10" rows="10"></textarea>
+        <div id="psot-bnt" align="right">
+            <a (click)="writePost()" class="btn btn-primary" name="writePost"> Post </a>
+        </div>
     </form>
 </div>

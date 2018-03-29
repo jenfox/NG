@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterService} from '../register.service';
+import { RegisterService } from '../register.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 
@@ -10,26 +10,26 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  email:string="";
-  password:string ="";
-  confirmPassword:string="";
-  constructor(private registerservice:RegisterService, private router:Router) { }
+  email = '';
+  password = '';
+  confirmPassword = '';
+  constructor(private registerservice: RegisterService, private router: Router) { }
 
   ngOnInit() {
   }
-  register(){
-    if(this.email == ""){
-      alert("Please provide a valid email");
+  register() {
+    if (this.email === '') {
+      alert('Please provide a valid email');
       return;
-    } else if(this.password == "" ){
-      alert("Please fill out the password field");
+    } else if (this.password === '') {
+      alert('Please fill out the password field');
       return;
-    } else if(this.confirmPassword == "") {
-      alert("Please confirm your password");
+    } else if (this.confirmPassword === '') {
+      alert('Please confirm your password');
       return;
     } else {
-      //get text to display to modal
-      let text = this.registerservice.register(this.email, this.password, this.confirmPassword);
+      // get text to display to modal
+      const text = this.registerservice.register(this.email, this.password, this.confirmPassword);
       console.log(text);
       document.getElementById('modalTitle').innerHTML = text;
       (<any>$('#registerModal')).modal('show');

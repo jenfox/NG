@@ -5,15 +5,15 @@ export class NavbarService {
 
   visibile: boolean;
 
-  constructor() { this.visibile = false;}
+  constructor() { this.visibile = false; }
 
-  hide(){
-    this.visibile=false;
+  hide() {
+    this.visibile = false;
   }
-  show(){
-    this.visibile=true;
+  show() {
+    this.visibile = true;
   }
-  toggle(){
+  toggle() {
     this.visibile = !(this.visibile);
   }
 
