@@ -2,26 +2,29 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FindUsersService {
 
-  public listOfMatches:User[];
+  public toFind:string;
 
   constructor(private http:HttpClient, private router:Router) { }
 
-  public getListOfMatches():User[]{
-    return this.listOfMatches;
+  setUserName(toFind:string)
+  {
+    this.toFind = toFind;
+    console.log('set username to find'+this.toFind)
   }
 
-  findUsers(toFind:String){
+  findUsers():Observable<User[]>{
     //if 'name name'
     //get '/users/{firstname}/{lasname}'
     //expects nothing (appended to url.)
-    if (toFind.indexOf(" ") + 1 ){
+    if (this.toFind.indexOf(" ") + 1 ){
     //alert('contains');
-    let firstName = toFind.substring(0,toFind.indexOf(" "));
-    let lastName = toFind.substring((toFind.indexOf(" ")+1))
+    let firstName = this.toFind.substring(0,this.toFind.indexOf(" "));
+    let lastName = this.toFind.substring((this.toFind.indexOf(" ")+1))
     console.log(firstName+" "+lastName+" is the name you are querying")
     const uRl = 'http://localhost:8080/users/'+firstName+'/'+lastName;
     const header= {
@@ -29,30 +32,20 @@ export class FindUsersService {
         'Content-Type':'application/json'
       })
     }
-    this.http.get(uRl, header).subscribe(
-      (succ:any)=>{
-        console.log(succ);
-        this.listOfMatches = succ;
-        this.router.navigateByUrl('/home/profileList')
-      }
-    )
+    return this.http.get<User[]>(uRl, header);
+        
   }
 else {
 console.log("no spaces");
-const uRl = 'http://localhost:8080/users/find/'+toFind;
+const uRl = 'http://localhost:8080/users/find/'+this.toFind;
     const header= {
       headers:new HttpHeaders({
         'Content-Type':'application/json'
       })
     }
-    this.http.get(uRl, header).subscribe(
-      (succ:any)=>{
-        console.log(succ);
-        this.listOfMatches = succ;
-        this.router.navigateByUrl('/home/profileList')
-      }
-    )
-}
+
+    return this.http.get<User[]>(uRl, header);
+  }
 
 
     //if one name: (else)

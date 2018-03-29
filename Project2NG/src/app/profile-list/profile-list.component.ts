@@ -15,8 +15,7 @@ export class ProfileListComponent implements OnInit {
   constructor(private router:Router, private findUsersService:FindUsersService) { }
 
   ngOnInit() {
-    this.profileList =this.findUsersService.getListOfMatches();
-    console.log(this.profileList);
+   this.findUsersService.findUsers().subscribe(users=>this.profileList = users);
   }
 
   goToProfile(userId:number){
