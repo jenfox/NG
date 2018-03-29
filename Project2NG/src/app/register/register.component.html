@@ -16,8 +16,8 @@
 
           <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control input-lg" id="confirmPassword"
             placeholder="Confirm Password" required="" />
-          <a (click)="register()" class="btn btn-lg btn-primary btn-block">Register</a>
-          <a href="./" class="btn btn-sm btn-secondary btn-block">Cancel</a>
+          <button (click)="register()" id="submitBtn" class="btn btn-lg btn-primary btn-block">Register</button>
+          <button (click)="this.router.navigate(['/'])" class="btn btn-sm btn-secondary btn-block">Cancel</button>
         </form>
 
       </section>
@@ -36,7 +36,7 @@
           </button>
         </div>
         <div class="modal-footer">
-          <button type="button" (click)="this.router.navigate(['/register'])" data-dismiss="modal" class="btn btn-danger">Understood</button>
+          <button type="button" id="modalBtn" (click)="this.router.navigate(['/register'])" data-dismiss="modal" class="btn btn-danger">Understood</button>
         </div>
       </div>
     </div>
