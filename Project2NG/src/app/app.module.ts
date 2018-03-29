@@ -15,7 +15,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { FeedComponent } from './feed/feed.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
-import { ProfilePicService } from './profile-pic.service';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { NavbarService } from './navbar.service';
 import { HomeComponent } from './home/home.component';
@@ -59,7 +58,6 @@ import { FindUserService } from './find-user.service';
   ],
   providers: [
     DataService,
-    ProfilePicService,
     NavbarService,
     PostService,
     LoginService,

@@ -4,8 +4,11 @@
             <!-- What goes here? -->
         </div>
         <div class="avatar">
-            <img src="{{uProfilePic}}" alt="profile pic">
+            <div *ngIf='this.user.profileUrl'>
+                <img src="{{uProfilePic}}" alt="profile pic">
+            </div>
         </div>
+        <br><br>
         <div class="info">
             <div class="desc">First Name: {{user.firstName}}</div>
             <div class="desc">Last Name: {{user.lastName}}</div>
@@ -17,10 +20,6 @@
         </div>
     </div>
 </div>
-
-<app-create-post></app-create-post>
-
-<!--  -->
 
 <div *ngIf="editMode">
     <app-change-password></app-change-password>
@@ -48,12 +47,12 @@
                     </div>
                     <div class="col-sm-5">
                         <label for="phone">Phone:</label>
-                        <input type="text" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber" placeholder="{{user.phone}}" class="form-control"
+                        <input type="tel" name="phoneNumber" [(ngModel)]="updateUser.phoneNumber" placeholder="{{user.phone}}" class="form-control"
                             id="phone">
                     </div>
                     <div class="col-sm-5">
                         <label for="dob">Date of Birth (YYYY-MM-DD):</label>
-                        <input type="text" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
+                        <input type="text" maxlength="10" minlength="10" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
                             id="dob">
                     </div>
 
