@@ -14,28 +14,31 @@ export class OtherProfileComponent implements OnInit {
   user: User;
   userId: number;
   private sub: any;
-  uProfilePic:string;
- 
+  uProfilePic: string;
+
 
   constructor(private http: HttpClient,
-    private findUserService: FindUserService, private route: ActivatedRoute) { 
+    private findUserService: FindUserService, private route: ActivatedRoute) {
 
 
-    }
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.userId = +params['id']; // (+) converts string 'id' to a number
-      console.log('route id '+this.userId)
-      //make request to populate user info
-      this.findUserService.findUser(this.userId).subscribe(user => this.profilePic(user))
-      
-   });
+      console.log('route id ' + this.userId);
+      // make request to populate user info
+      this.findUserService.findUser(this.userId).subscribe(user => this.profilePic(user));
+
+    });
   }
 
-  profilePic(user:User){
+  profilePic(user: User) {
     this.user = user;
     this.uProfilePic = 'https://s3.amazonaws.com/friendscape/' + this.user.profileUrl;
+  }
+  loadOtherFeed(userId: number) {
+    
   }
 
 

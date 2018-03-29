@@ -25,9 +25,9 @@ export class PostService {
   {
     return this.posts;
   }
-   // "/posts/feed" -> get method 
+   // "/posts/feed" -> get method
  get20Posts(): Observable<Post[]> {
-  const url:string = 'http://localhost:8080/posts/feed';
+  const url: string = 'http://localhost:8080/posts/feed';
   const header = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json'

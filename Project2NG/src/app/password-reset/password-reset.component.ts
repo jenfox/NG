@@ -9,14 +9,15 @@ import { Router } from '@angular/router';
 })
 export class PasswordResetComponent implements OnInit {
 
-  constructor(private resetservice: PasswordResetService, private router:Router) { }
-  public email: string = "";
+  constructor(private resetservice: PasswordResetService, private router: Router) { }
+  public email = '';
 
-  public reset(){
+  public reset() {
     this.resetservice.reset(this.email);
-    //show modal
+    // show modal
+
     (<any>$('#passwordModal')).modal('show');
-    
+
   }
 
   ngOnInit() {
