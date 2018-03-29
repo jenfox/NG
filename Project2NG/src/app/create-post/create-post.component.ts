@@ -18,8 +18,22 @@ export class CreatePostComponent implements OnInit {
   }
 
   writePost(){
+    let pic : any;
+    pic = document.getElementById("picture");
+    let files = [];
+    let filename: any;
+    files = pic.files;
+    
+    let theFile : File = files[0];
+    let formdata: FormData = new FormData();
 
-    this.postService.createPost(this.userPost);
+    console.log(theFile);
+
+    formdata.append('multipartFile', theFile);
+
+    console.log(formdata);
+
+    this.postService.createPost(this.userPost, formdata);
     
   }
 

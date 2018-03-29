@@ -42,36 +42,77 @@ export class PostService {
 
   }
 
-  createPost(post: String) {
+  // createPost(post: String) {
 
-    // Http request (post)
-    const user = <User>this.cookie.getObject('user');
-    const id = user.id;
+  //   // Http request (post)
+  //   const user = <User>this.cookie.getObject('user');
+  //   const id = user.id;
 
-    const url = 'http://localhost:8080/posts';
-    const data = {
-      'content': post,
-      'author': { 'id': id }
-    };
-    const header = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    console.log('data = ' + data.author.id);
-    this.http.post(url, data, header).subscribe(
-      (succ: any) => {
-        console.log(succ);
+  //   const url = 'http://localhost:8080/posts';
+  //   const data = {
+  //     'content': post,
+  //     'author': { 'id': id }
+  //   };
+  //   const header = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json'
+  //     })
+  //   };
+  //   console.log('data = ' + data.author.id);
+  //   this.http.post(url, data, header).subscribe(
+  //     (succ: any) => {
+  //       console.log(succ);
 
-        // route to the homepage
-        window.location.reload();
+  //       // route to the homepage
+  //       window.location.reload();
 
-      }
-    );
+  //     }
+  //   );
+
+    createPost(post: String, formdata: FormData) {
+
+      let resp: Post;
+      const poster: Post = new Post(post);
+
+      const url2 = 'http://localhost:8080/posts/pictures';
+      this.http.post(url2, formdata).subscribe(
+        (succ: any) => {
+          console.log(succ);
+          resp = succ;
+          poster.imageUrl = resp.imageUrl;
+          console.log(poster);
+
+          const user = <User>this.cookie.getObject('user');
+          poster.id = user.id;
+          const id = user.id;
+
+          const url = 'http://localhost:8080/posts';
+          const data = {
+            'content': poster.content,
+            'imageUrl': poster.imageUrl,
+            'author': { 'id': id }
+          };
+
+          const header = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json'
+            })
+          };
+          console.log('data = ' + data.content);
+          this.http.post(url, data).subscribe(
+            // tslint:disable-next-line:no-shadowed-variable
+            (succ: any) => {
+              console.log(succ);
+
+              // route to the homepage
+              window.location.reload();
+
+            }
+          );
+        });
+
+    }
+
 
 
   }
-
-
-
-}
