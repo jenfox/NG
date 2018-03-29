@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-sm-5">
                         <label for="dob">Date of Birth (YYYY-MM-DD):</label>
-                        <input type="date" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
+                        <input type="text" maxlength="10" minlength="10" name="dateOfBirth" [(ngModel)]="updateUser.dateOfBirth" placeholder="{{user.dateOfBirth}}" class="form-control"
                             id="dob">
                     </div>
 
