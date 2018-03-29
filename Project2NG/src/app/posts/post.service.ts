@@ -84,8 +84,6 @@ export class PostService {
           }
         );
       });
-
-
   }
 }
 
