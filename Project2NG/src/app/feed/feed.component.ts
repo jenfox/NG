@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../Post';
 import { PostService } from '../posts/post.service';
 import { LikePostService } from '../like-post.service';
+import { User } from '../user';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @Component({
   selector: 'app-feed',
@@ -12,14 +14,18 @@ export class FeedComponent implements OnInit {
 
   posts: Post[];
   numLikes:number;
+  user:User;
 
-  currentUser: {
+  constructor(private postService: PostService, private likepostservice: LikePostService, 
+    private cookie: CookieService) 
+    { 
 
-  }
-  constructor(private postService: PostService, private likepostservice: LikePostService) { }
+    }
 
   ngOnInit() {
     this.getPosts();
+    //init user
+    this.user = <User>this.cookie.getObject('user');
   }
 
   getPosts() {
@@ -44,6 +50,7 @@ export class FeedComponent implements OnInit {
         if (item.id == post.id)
           posts[i] = post
       })
+
     );
 
     
